@@ -1,0 +1,26 @@
+{% extends 'base.html' %} <!-- Se va a heredar de la plantilla base-->
+{% block title %} contactanos {% endblock %}
+
+{% block contactanos %}
+    <!-- Contactanos-->
+
+    <nav class="nav_categoria" id="nuestros_productos">
+        <img src="{{ url_for('static', filename='img/Imagenes/icono_contactos.webp')}}" class="nav__logo" >
+
+        <h1 class="nav__title">
+            Contactanos
+        </h1>
+    </nav>
+
+    <nav class="nav_categoria">     
+
+        <ul class="nav__list_categoria">
+            <li class="nav__item_categoria">
+                <img src="{{ url_for('static', filename='img/Imagenes/imagen_contactos.jpg')}}" class="imagen">
+                <a href="" class="nav__link_menu" >Introducir texto</a>
+            </li>
+        </ul>
+
+    </nav>
+    
+{% endblock %}

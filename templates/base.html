@@ -1,0 +1,95 @@
+<!DOCTYPE html> <!-- Es para que el html reconosca codigos mas actuales-->
+<html>
+<head>
+    <title>Nature Sale - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body>
+
+    <!-- Mini Menu superior-->
+    <nav class="nav" id="titulo">
+        <img src="{{ url_for('static', filename='img/Imagenes/logo.png') }}" class="nav__logo" >
+
+        <h1 class="nav__title">
+            Nature Sale
+        </h1>
+        
+        <ul class="nav__list_del_menu">
+            <li class="nav__item_del_menu">
+                <a href="{{ url_for('index') }}" class="nav__link_menu" >Inicio</a>
+            </li>
+
+            <li class="nav__item_del_menu">
+                <a href="{{ url_for('nosotros') }}" class="nav__link_menu" >Nosotros</a>
+            </li>
+            <li class="nav__item_del_menu">
+                <a href="{{ url_for('contactanos') }}" class="nav__link_menu" >Contactanos</a>
+            </li>
+
+            <li class="nav__item_del_menu">
+                <a href="{{ url_for('inicio_de_seccion_o_registrarse') }}" class="nav__link_menu"> Inicio de Secion / Registrarse</a>
+            </li>
+        </ul>
+        
+        <img src="{{ url_for('static', filename='img/Imagenes/telefono.png') }}" class="nav__telefono" >
+
+        <h1 class="nav__title">
+            949-040-678
+        </h1>
+    </nav>
+
+    {% block transision_de_imagenes %}
+
+    {% endblock %}
+
+    {% block nuestros_productos %}
+
+    {% endblock %}
+
+    {% block nuestros_servicios_y_ventas_adicionales %}
+
+    {% endblock %}
+
+    {% block nosotros %}
+
+    {% endblock %}
+
+    {% block contactanos %}
+
+    {% endblock %}
+
+    {% block inicio_de_seccion_o_registrarse %}
+
+    {% endblock %}
+
+    <!-- Pie de Pagina -->
+    <footer>
+        <div class="footer-container">
+            <!-- Parte Izquierda -->
+            <section class="footer-left">
+                <a href="#titulo">Ir al comienzo</a>
+                <a href="#nuestros_productos">Nuestros Productos</a>
+                <a href="#servicios">Servicios</a>
+                <p>Copyright 2025</p>
+            </section>
+            
+            <!-- Parte Centro -->
+            <section class="footer-center">
+                <p>Jardines Edén</p>
+                <p>949040678</p>
+                <p>jardines_eden@gmail.com</p>
+                <p>Calle Federico Recavarren, 131, Int. 501</p>
+            </section>
+            
+            <!-- Parte Derecha -->
+            <section class="footer-right">
+                <p>Horario</p>
+                <p>Lunes - Sabado: 6:00 am - 8:00 pm</p>
+                <p>Domingo: 8:00 am - 6:00 pm</p>
+                <img src="{{ url_for('static', filename='img/Imagenes/logo.png')}}" class="imagen_1">
+            </section>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/app.js')}}"></script>
+</body>
+</html>

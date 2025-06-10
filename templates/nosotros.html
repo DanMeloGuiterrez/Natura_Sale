@@ -1,0 +1,25 @@
+{% extends 'base.html' %} <!-- Se va a heredar de la plantilla base-->
+{% block title %} nosotros {% endblock %}
+
+{% block nosotros %}
+    <!-- Nosotros-->
+
+    <nav class="nav_categoria" id="nuestros_productos">
+        <img src="{{ url_for('static', filename='img/Imagenes/nosotros_icono.png')}}" class="nav__logo" >
+
+        <h1 class="nav__title">
+            Nosotros
+        </h1>
+    </nav>
+
+    <nav class="nav_categoria">     
+
+        <ul class="nav__list_categoria">
+            <li class="nav__item_categoria">
+                <img src="{{ url_for('static', filename='img/Imagenes/imagen_nosotros.jpg')}}" class="imagen">
+                <a href="" class="nav__link_menu" >Introducir texto</a>
+            </li>
+        </ul>
+
+    </nav>
+{% endblock %}

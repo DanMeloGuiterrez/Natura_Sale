@@ -1,0 +1,116 @@
+{% extends 'base.html' %} <!-- Se va a heredar de la plantilla base-->
+{% block title %} Pagina de Inicio {% endblock %}
+
+{% block transision_de_imagenes %}
+<!-- Transision de imagenes-->
+
+    <div class="imagenes_transision">
+        <div class="atras_carrucel">
+            <img id="atras" src="{{ url_for('static', filename='img/Imagenes/atras.svg')}}"  loading="lazy">
+        </div>
+
+        <div class="imagenes_carrucel">
+            <div id="img" class="contenedor_imagen">
+                <img class="img" src="{{ url_for('static', filename='img/Imagenes/imagen1.png')}}" loading="lazy">
+                
+                <div class="texto_imagen">
+                    <p>Puede encontrar un montón de variedades de plantas</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="adelante_carrucel" id="adelante">
+            <img src="{{ url_for('static', filename='img/Imagenes/adelante.svg')}}" loading="lazy">
+        </div>
+    </div>
+
+    <div class="puntos" id="puntos"></div>
+
+{% endblock %}
+
+{% block nuestros_productos %}
+<!-- Nuestros Productos-->
+
+    <nav class="nav_categoria" id="nuestros_productos">
+        <img src="{{ url_for('static', filename='img/Imagenes/mini_imagen1.png')}}" class="nav__logo" >
+
+        <h1 class="nav__title">
+            Nuestros Productos
+        </h1>
+    </nav>
+
+    <nav class="nav_categoria">     
+
+        <ul class="nav__list_categoria">
+            <li class="nav__item_categoria">
+                <img src="{{ url_for('static', filename='img/Img_plantas/img_1.jpeg')}}" class="imagen">
+                <a href="" class="nav__link_menu" >Plantas Ornamentales</a>
+            </li>
+
+            <li class="nav__item_categoria">
+                <img src="{{ url_for('static', filename='img/Img_plantas/img_3.jpeg')}}" class="imagen">
+                <a href="" class="nav__link_menu" >Frutales</a>
+            </li>
+
+            <li class="nav__item_categoria">
+                <img src="{{ url_for('static', filename='img/Img_plantas/img_4.png')}}" class="imagen">
+                <a href="" class="nav__link_menu" >Arboles</a>
+            </li>
+
+            <li class="nav__item_categoria">
+                <img src="{{ url_for('static', filename='img/Img_plantas/img_5.jpeg')}}" class="imagen">
+                <a href="" class="nav__link_menu" >Suculentas</a>
+            </li>
+
+            <li class="nav__item_categoria">
+                <img src="{{ url_for('static', filename='img/Img_plantas/img_6.jpeg')}}" class="imagen">
+                <a href="" class="nav__link_menu" >Enredaderas, plantas trepadoras y colgantes.</a>
+            </li>
+        </ul>
+
+    </nav>
+
+{% endblock %}
+
+{% block nuestros_servicios_y_ventas_adicionales %}
+<!-- Nuestros servicios y ventas adicionales -->
+
+    <nav class="nav_categoria" id="servicios">
+        <img src="{{ url_for('static', filename='img/Imagenes/mini_imagen2.png')}}" class="nav__logo" >
+
+        <h1 class="nav__title">
+            Nuestros servicios y ventas adicionales
+        </h1>
+    </nav>
+
+    <nav class="nav_categoria">        
+        <ul class="nav__list_categoria">
+            <li class="nav__item_categoria">
+                <img src="{{ url_for('static', filename='img/Img_plantas/img_11.jpeg')}}" class="imagen">
+                <span class="nav__link_descripcion">Asesoramiento de Jardinería</span>
+                <span class="nav__comment">Te guiamos y enseñamos a cómo cuidar tu jardín para que sea duradero</span>
+            </li>   
+
+            <li class="nav__item_categoria">
+                <img src="{{ url_for('static', filename='img/Img_plantas/img_12.jpeg')}}" class="imagen">
+                <span class="nav__link_descripcion">Mantenimiento</span>
+                <span class="nav__comment">Mantenimiento experto para un jardín siempre radiante</span>
+            </li>
+
+            <li class="nav__item_categoria">
+                <img src="{{ url_for('static', filename='img/Img_plantas/img_13.png')}}" class="imagen">
+                <a href="" class="nav__link_menu" >Ventas de Herramientas y Macetas</a>
+            </li>
+
+            <li class="nav__item_categoria">
+                <img src="{{ url_for('static', filename='img/Img_plantas/img_14.png')}}" class="imagen">
+                <a href="" class="nav__link_menu" >Venta de Abono y Sustratos</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <br>
+    <br>
+
+{% endblock %}
