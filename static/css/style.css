@@ -1,6 +1,13 @@
-body {
+html, body {
+    height: 100%;
     margin: 0;
     background-color: rgb(230, 245, 216);
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 /* Mini Menu*/
@@ -283,4 +290,75 @@ footer a:hover {
     max-width: 100px;
     height: auto;
     border-radius: 5px;
+}
+
+.nav_inicio_seccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(43, 255, 0, 0.965);
+    width: 400px;
+    margin: 40px auto;
+    font-size: 18px;
+}
+
+.nav_inicio_seccion form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nav_inicio_seccion input[type="text"],
+.nav_inicio_seccion input[type="password"] {
+    padding: 12px;
+    font-size: 20px;
+    border: 1px solid #343333;
+    border-radius: 6px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.btn_iniciar,
+.btn_registrarse {
+    display: inline-block; /* Muy importante para aplicar padding correctamente */
+    text-align: center;
+    text-decoration: none;
+    background-color: #28a745;
+    color: white;
+    padding: 14px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.btn_registrarse:hover {
+    background-color: #1e7e34;
+}
+
+
+.btn_iniciar {
+    background-color: #007BFF;
+    color: white;
+}
+
+.btn_iniciar:hover {
+    background-color: #0056b3;
+}
+
+.btn_registrarse {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn_registrarse:hover {
+    background-color: #1e7e34;
 }

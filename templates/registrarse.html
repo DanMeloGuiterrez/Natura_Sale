@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} Registrarse {% endblock %}
+
+{% block registrarse %}
+    <!-- Formulario de Registrarse -->
+    <nav class="nav_inicio_seccion">
+        <h1 class="nav__title">Registrarse</h1>
+
+        <form action="" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre">
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" id="apellido">
+
+            <label for="gmail">Gmail:</label>
+            <input type="text" name="gmail" id="gmail">
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="text" name="contrasena" id="contrasena">
+
+            <label for="telefono">Teléfono:</label>
+            <input type="text" name="telefono" id="telefono">
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" name="direccion" id="direccion">
+
+            <label for="dni">DNI:</label>
+            <input type="text" name="dni" id="dni">
+
+            <input type="submit" value="Registrarse" class="btn_registrarse">
+        </form>
+
+    </nav>
+{% endblock %}
