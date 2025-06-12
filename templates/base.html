@@ -8,6 +8,99 @@
 
     <!-- Mini Menu superior-->
     <nav class="nav" id="titulo">
+        <!-- Despliegue -->
+        <div class="nav_despliegue">
+            <a href="#despligue_abrir" class="nav__menu_despliegue">
+                <img src="{{ url_for('static', filename='img/Imagenes/icono_despliegue.png') }}" class="nav__icon">
+            </a>
+
+            <a href="#despligue_cerrar" class="nav__menu_despliegue nav__menu_despliegue--second">
+                <img src="{{ url_for('static', filename='img/Imagenes/icono_despliegue_cerrar.png') }}" class="nav__icon">
+            </a>
+        </div>
+        <ul class="dropdown" id="despligue_abrir">
+
+            <li class="dropdown__list">
+                    <a href="#" class="dropdown__link">
+                        <img src="{{ url_for('static', filename='img/Imagenes/icono_inicio.png') }}" class="dropdown__icon">
+                        <span class="dropdown__span">Inicio</span>
+                    </a>
+            </li>
+
+            <li class="dropdown__list">
+                    <a href="#" class="dropdown__link">
+                        <img src="{{ url_for('static', filename='img/Imagenes/imagen_nosotros.jpg') }}" class="dropdown__icon">
+                        <span class="dropdown__span">Nosotros</span>
+                    </a>
+            </li>
+
+            <li class="dropdown__list">
+                    <a href="#" class="dropdown__link">
+                        <img src="{{ url_for('static', filename='img/Imagenes/imagen_contactos.jpg') }}" class="dropdown__icon">
+                        <span class="dropdown__span">Contactos</span>
+                    </a>
+            </li>
+
+            <li class="dropdown__list">
+                    <a href="#" class="dropdown__link">
+                        <img src="{{ url_for('static', filename='img/Imagenes/mini_imagen1.png') }}" class="dropdown__icon">
+                        <span class="dropdown__span">Nuestros Productos</span>
+                        <img src="{{ url_for('static', filename='img/Imagenes/flechita_abajo.png') }}" class="dropdown__arrow">
+
+                        <input type="checkbox" class="dropdown__check">
+                    </a>
+                    <div class="dropdown__content">
+
+                        <ul class="dropdown__sub">
+
+                            <li class="dropdown__li">
+                                <a href="#" class="dropdown__anchor">Plantas Ornamentales</a>
+                            </li>
+                            <li class="dropdown__li">
+                                <a href="#" class="dropdown__anchor">Frutales</a>
+                            </li>
+                            <li class="dropdown__li">
+                                <a href="#" class="dropdown__anchor">Arboles</a>
+                            </li>
+                            
+                            <li class="dropdown__li">
+                                <a href="#" class="dropdown__anchor">Suculentas</a>
+                            </li>
+
+                            <li class="dropdown__li">
+                                <a href="#" class="dropdown__anchor">Enredaderas, plantas trepadoras y colgantes</a>
+                            </li>
+                        </ul>
+
+                    </div>
+            </li>
+
+            <li class="dropdown__list">
+                    <a href="#" class="dropdown__link">
+                        <img src="{{ url_for('static', filename='img/Imagenes/mini_imagen2.png') }}" class="dropdown__icon">
+                        <span class="dropdown__span">Nuestros servicios y ventas adicionales</span>
+                        <img src="{{ url_for('static', filename='img/Imagenes/flechita_abajo.png') }}" class="dropdown__arrow">
+
+                        <input type="checkbox" class="dropdown__check">
+                    </a>
+                    <div class="dropdown__content">
+
+                        <ul class="dropdown__sub">
+
+                            <li class="dropdown__li">
+                                <a href="#" class="dropdown__anchor">Ventas de Herramientas</a>
+                            </li>
+                            <li class="dropdown__li">
+                                <a href="#" class="dropdown__anchor">Ventas de Abono y Sustratos</a>
+                            </li>                            
+                        </ul>
+                    </div>
+            </li>
+        </ul>
+
+
+        
+        <!-- Logo y nombre de la empresa -->
         <img src="{{ url_for('static', filename='img/Imagenes/logo.png') }}" class="nav__logo" >
 
         <h1 class="nav__title">Nature Sale</h1>

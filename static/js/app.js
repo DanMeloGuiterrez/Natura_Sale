@@ -1,25 +1,26 @@
 let imagenes = [
     {
-        "url": "img/Imagenes/imagen1.png",
+        "url": "/static/img/Imagenes/imagen1.png",
         "descripcion": "Puede encontrar un monton de variedades de plantas"
     },
     {
-        "url": "img/Imagenes/imagen2.png",
+        "url": "/static/img/Imagenes/imagen2.png",
         "descripcion": "Distribuimos a diferentes partes del pais"
     },
     {
-        "url": "img/Imagenes/imagen3.png",
+        "url": "/static/img/Imagenes/imagen3.png",
         "descripcion": "Al mejor precio S/. "
     },
     {
-        "url": "img/Imagenes/imagen4.png",
+        "url": "/static/img/Imagenes/imagen4.png",
         "descripcion": "Y al menor tiempo posible"
     },
     {
-        "url": "img/Imagenes/imagen5.png",
+        "url": "/static/img/Imagenes/imagen5.png",
         "descripcion": "Elije Jardines Eden para tus decoraciones"
     }
 ];
+
 
 let atras = document.getElementById('atras');
 let adelante = document.getElementById('adelante');
@@ -61,10 +62,10 @@ function posicionCarrusel() {
     puntos.innerHTML = "";
     for (var i = 0; i <imagenes.length; i++){
         if(i == actual){
-            puntos.innerHTML += '<p class="bold">.<p>'
+            puntos.innerHTML += '<p class="bold">.<p>';
         }
         else{
-            puntos.innerHTML += '<p>.<p>'
+            puntos.innerHTML += '<p>.<p>';
         }
     } 
 }
