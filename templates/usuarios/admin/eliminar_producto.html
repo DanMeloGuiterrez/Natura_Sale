@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Eliminar Producto{% endblock %}
+
+{% block eliminar_producto %}
+<div class="nav_visualizar_datos">
+    <h2>¿Estás seguro de que deseas eliminar el siguiente producto?</h2>
+
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr><th style="text-align: left; padding: 5px;">ID:</th><td>{{ producto.id_producto }}</td></tr>
+        <tr><th style="text-align: left; padding: 5px;">Nombre:</th><td>{{ producto.nombre_producto }}</td></tr>
+        <tr><th style="text-align: left; padding: 5px;">Precio:</th><td>S/ {{ producto.precio }}</td></tr>
+        <tr><th style="text-align: left; padding: 5px;">Imagen:</th>
+            <td>
+                <img src="{{ producto.imagen }}" alt="Imagen" width="120"><br>
+                <small>{{ producto.imagen.split('/')[-1] }}</small>
+            </td>
+        </tr>
+        <tr><th style="text-align: left; padding: 5px;">Descripción:</th><td>{{ producto.descripcion }}</td></tr>
+        <tr><th style="text-align: left; padding: 5px;">Stock:</th><td>{{ producto.stock }}</td></tr>
+        <tr><th style="text-align: left; padding: 5px;">ID Categoría:</th><td>{{ producto.id_categoria }}</td></tr>
+    </table>
+
+    <form method="POST">
+        <button type="submit">Sí, eliminar</button>
+        <a href="{{ url_for('visualizar_productos') }}" style="margin-left: 20px;">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

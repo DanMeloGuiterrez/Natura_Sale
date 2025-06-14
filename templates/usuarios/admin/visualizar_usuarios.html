@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %} Visualizar Usuarios {% endblock %}
+
+{% block visualizar_usuarios %}
+<div class="nav_visualizar_datos">
+    <h1 class="nav__title">Visualizar Usuarios </h1>
+    <br>
+
+    <table class="table">
+        <thead class="nav__tabla">
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>DNI</th>
+            <th>Acciones</th>
+        </thead>
+
+        <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario.id_usuario }}</td>
+            <td>{{ usuario.nombre_cliente }}</td>
+            <td>{{ usuario.apellido_cliente }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.telefono }}</td>
+            <td>{{ usuario.direccion }}</td>
+            <td>{{ usuario.dni }}</td>
+            <td>
+                <a href="/usuarios/{{ usuario.id_usuario }}/editar" style="color: green;"><i class="fas fa-edit"></i></a> |
+                <a href="/usuarios/{{ usuario.id_usuario }}/eliminar" style="color: red;"><i class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

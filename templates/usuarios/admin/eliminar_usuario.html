@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Eliminar Usuario{% endblock %}
+
+{% block eliminar_usuario %}
+<div class="nav_visualizar_datos">
+    <h2>¿Estás seguro de que deseas eliminar al siguiente usuario?</h2>
+
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr><th style="text-align: left; padding: 5px;">ID:</th><td>{{ usuario.id_usuario }}</td></tr>
+        <tr><th style="text-align: left; padding: 5px;">Nombre:</th><td>{{ usuario.nombre_cliente }}</td></tr>
+        <tr><th style="text-align: left; padding: 5px;">Apellido:</th><td>{{ usuario.apellido_cliente }}</td></tr>
+        <tr><th style="text-align: left; padding: 5px;">Email:</th><td>{{ usuario.email }}</td></tr>
+        <tr><th style="text-align: left; padding: 5px;">Teléfono:</th><td>{{ usuario.telefono }}</td></tr>
+        <tr><th style="text-align: left; padding: 5px;">Dirección:</th><td>{{ usuario.direccion }}</td></tr>
+        <tr><th style="text-align: left; padding: 5px;">DNI:</th><td>{{ usuario.dni }}</td></tr>
+    </table>
+
+    <form method="POST">
+        <button type="submit">Sí, eliminar</button>
+        <a href="{{ url_for('visualizar_usuarios') }}">Cancelar</a>
+    </form>
+</div>
+
+{% endblock %}

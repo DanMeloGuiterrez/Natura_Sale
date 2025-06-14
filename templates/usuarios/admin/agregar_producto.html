@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %} Agregar Producto {% endblock %}
+
+{% block agregar_producto %}
+    <!-- agregar_producto-->
+    <nav class="nav_inicio_seccion">
+        <h1 class="nav__title">Agregar Producto </h1>
+        <br>
+        <form action="" method="POST">
+            <label for="nombre">Nombre del Producto:</label>
+            <input type="text" name="nombre" id="nombre">
+
+            <label for="precio">Precio:</label>
+            <input type="number" step="0.01" name="precio" id="precio">
+
+            <label for="imagen">Imagen del producto:</label>
+            <input type="file" name="imagen" id="imagen" accept="image/*">
+
+            <label for="descripcion">Descripción:</label>
+            <textarea name="descripcion" id="descripcion" class="descripcion"></textarea>
+
+            <label for="stock">Stock:</label>
+            <input type="number" name="stock" min="0" value="0" id="stock">
+
+            <label for="id_categoria">Categoría:</label>
+            <select name="id_categoria" required>
+                <option value="1">Plantas Ornamentales</option>
+                <option value="2">Frutales</option>
+                <option value="3">Árboles</option>
+                <option value="4">Suculentas</option>
+                <option value="5">Enredaderas/Trepadoras/Colgantes</option>
+                <option value="6">Herramientas/Macetas</option>
+                <option value="7">Abono/Sustratos</option>
+            </select><br><br>
+
+            <input type="submit" value="Agregar producto" class="btn_registrarse">
+        </form>
+
+    </nav>
+{% endblock %}

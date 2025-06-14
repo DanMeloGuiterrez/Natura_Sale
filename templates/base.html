@@ -3,6 +3,7 @@
 <head>
     <title>Nature Sale - {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- Iconos de Edicion y Borrar-->
 </head>
 <body>
 
@@ -21,22 +22,22 @@
         <ul class="dropdown" id="despligue_abrir">
 
             <li class="dropdown__list">
-                    <a href="#" class="dropdown__link">
+                    <a href="{{ url_for('index') }}" class="dropdown__link">
                         <img src="{{ url_for('static', filename='img/Imagenes/icono_inicio.png') }}" class="dropdown__icon">
                         <span class="dropdown__span">Inicio</span>
                     </a>
             </li>
 
             <li class="dropdown__list">
-                    <a href="#" class="dropdown__link">
-                        <img src="{{ url_for('static', filename='img/Imagenes/imagen_nosotros.jpg') }}" class="dropdown__icon">
+                    <a href="{{ url_for('nosotros') }}" class="dropdown__link">
+                        <img src="{{ url_for('static', filename='img/Imagenes/nosotros_icono.png') }}" class="dropdown__icon">
                         <span class="dropdown__span">Nosotros</span>
                     </a>
             </li>
 
             <li class="dropdown__list">
-                    <a href="#" class="dropdown__link">
-                        <img src="{{ url_for('static', filename='img/Imagenes/imagen_contactos.jpg') }}" class="dropdown__icon">
+                    <a href="{{ url_for('contactanos') }}" class="dropdown__link">
+                        <img src="{{ url_for('static', filename='img/Imagenes/icono_contactos.webp') }}" class="dropdown__icon">
                         <span class="dropdown__span">Contactos</span>
                     </a>
             </li>
@@ -54,21 +55,21 @@
                         <ul class="dropdown__sub">
 
                             <li class="dropdown__li">
-                                <a href="#" class="dropdown__anchor">Plantas Ornamentales</a>
+                                <a href="{{ url_for('plantas_ornamentales') }}" class="dropdown__anchor">Plantas Ornamentales</a>
                             </li>
                             <li class="dropdown__li">
-                                <a href="#" class="dropdown__anchor">Frutales</a>
+                                <a href="{{ url_for('frutales') }}" class="dropdown__anchor">Frutales</a>
                             </li>
                             <li class="dropdown__li">
-                                <a href="#" class="dropdown__anchor">Arboles</a>
+                                <a href="{{ url_for('arboles') }}" class="dropdown__anchor">Arboles</a>
                             </li>
                             
                             <li class="dropdown__li">
-                                <a href="#" class="dropdown__anchor">Suculentas</a>
+                                <a href="{{ url_for('suculentas') }}" class="dropdown__anchor">Suculentas</a>
                             </li>
 
                             <li class="dropdown__li">
-                                <a href="#" class="dropdown__anchor">Enredaderas, plantas trepadoras y colgantes</a>
+                                <a href="{{ url_for('enre_plant_trepa_colgan') }}" class="dropdown__anchor">Enredaderas, plantas trepadoras y colgantes</a>
                             </li>
                         </ul>
 
@@ -88,10 +89,10 @@
                         <ul class="dropdown__sub">
 
                             <li class="dropdown__li">
-                                <a href="#" class="dropdown__anchor">Ventas de Herramientas</a>
+                                <a href="{{ url_for('ventas_de_herramientas') }}" class="dropdown__anchor">Ventas de Herramientas</a>
                             </li>
                             <li class="dropdown__li">
-                                <a href="#" class="dropdown__anchor">Ventas de Abono y Sustratos</a>
+                                <a href="{{ url_for('ventas_de_abono_sustratos') }}" class="dropdown__anchor">Ventas de Abono y Sustratos</a>
                             </li>                            
                         </ul>
                     </div>
@@ -120,10 +121,34 @@
         {% block transision_de_imagenes %}{% endblock %}
         {% block nuestros_productos %}{% endblock %}
         {% block nuestros_servicios_y_ventas_adicionales %}{% endblock %}
+
         {% block nosotros %}{% endblock %}
         {% block contactanos %}{% endblock %}
+
         {% block inicio_de_seccion %}{% endblock %}
         {% block registrarse %}{% endblock %}
+
+        {% block agregar_producto %}{% endblock %}
+
+        {% block visualizar_usuarios %}{% endblock %}
+        {% block visualizar_productos %}{% endblock %}
+
+        {% block modificar_datos_usuario %}{% endblock %}
+        {% block modificar_datos_producto %}{% endblock %}
+
+        {% block eliminar_usuario %}{% endblock %}
+        {% block eliminar_producto %}{% endblock %}
+
+        {% block plantas_ornamentales %}{% endblock %}
+        {% block arboles %}{% endblock %}
+        {% block enre_plant_trepa_colgan %}{% endblock %}
+        {% block frutales %}{% endblock %}
+        {% block suculentas %}{% endblock %}
+
+        {% block ventas_de_abono_sustratos %}{% endblock %}
+        {% block ventas_de_herramientas %}{% endblock %}
+
+        
     </main>
 
     <!-- Pie de Pagina -->

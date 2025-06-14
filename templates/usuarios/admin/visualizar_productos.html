@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %} Visualizar Productos  {% endblock %}
+
+{% block visualizar_productos %}
+<div class="nav_visualizar_datos">
+    <h1 class="nav__title">Visualizar Productos</h1>
+    <br>
+
+    <table class="table">
+        <thead class="nav__tabla">
+            <tr>
+                <th>ID</th>
+                <th>Nombre Producto</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+                <th>Descripción</th>
+                <th>Stock</th>
+                <th>ID Categoría</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.id_producto }}</td>
+            <td>{{ producto.nombre_producto }}</td>
+            <td>S/ {{ producto.precio }}</td>
+            <td>
+                <img src="{{ producto.imagen }}" alt="Imagen" width="100">
+            </td>
+            <td>{{ producto.descripcion }}</td>
+            <td>{{ producto.stock }}</td>
+            <td>{{ producto.id_categoria }}</td>
+            <td>
+                <a href="/productos/{{ producto.id_producto }}/editar" style="color: green;"><i class="fas fa-edit"></i></a> |
+                <a href="/productos/{{ producto.id_producto }}/eliminar" style="color: red;"><i class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

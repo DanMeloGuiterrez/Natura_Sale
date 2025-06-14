@@ -1,0 +1,29 @@
+{% extends 'base.html' %} <!-- Se va a heredar de la plantilla base-->
+{% block title %} Modificar Datos Usuario  {% endblock %}
+
+{% block modificar_datos_usuario %}
+<div class="nav_inicio_seccion">
+    <h1>Editar Usuario</h1>
+    <form method="POST">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" value="{{ usuario.nombre_cliente }}">
+
+        <label>Apellido:</label>
+        <input type="text" name="apellido" value="{{ usuario.apellido_cliente }}">
+
+        <label>Gmail:</label>
+        <input type="text" name="email" value="{{ usuario.email }}">
+
+        <label>Teléfono:</label>
+        <input type="text" name="telefono" value="{{ usuario.telefono }}">
+
+        <label>Dirección:</label>
+        <input type="text" name="direccion" value="{{ usuario.direccion }}">
+
+        <label>DNI:</label>
+        <input type="text" name="dni" value="{{ usuario.dni }}">
+
+        <button type="submit" class="btn_registrarse">Guardar Cambios</button>
+    </form>
+</div>
+{% endblock %}

@@ -234,7 +234,7 @@ main {
 }
 
 /* Estilos para el nombre */
-.nombre {
+.nombre{
     font-weight: bold;
     font-size: 16px;
 }
@@ -244,9 +244,7 @@ main {
     font-size: 14px;
     color: #ff0000;
     font-weight: bold;
-}
-
-/* Formulario para comprar. */
+} 
 
 
 
@@ -321,13 +319,27 @@ footer a:hover {
 }
 
 .nav_inicio_seccion input[type="text"],
-.nav_inicio_seccion input[type="password"] {
+.nav_inicio_seccion input[type="password"],
+.nav_inicio_seccion input[type="number"],
+.nav_inicio_seccion input[type="file"],
+.nav_inicio_seccion input[type="file"],
+select[name="id_categoria"]{
     padding: 12px;
     font-size: 20px;
     border: 1px solid #343333;
     border-radius: 6px;
     box-sizing: border-box;
     width: 100%;
+}
+.descripcion {
+    width: 100%;           /* Ocupa todo el ancho disponible */
+    height: 250px;         /* Más alto que un input normal */
+    padding: 12px;
+    font-size: 18px;
+    border: 1px solid #343333;
+    border-radius: 6px;
+    box-sizing: border-box;
+    resize: vertical;      /* El usuario podrá redimensionarlo verticalmente si quiere */
 }
 
 /* Registrarse */
@@ -415,6 +427,7 @@ footer a:hover {
     bottom: 0;
     padding: 1em;
     z-index: 2;
+    border-radius: 15px;
 
     display: grid;
     align-content:center ;
@@ -493,4 +506,33 @@ footer a:hover {
     display: block;
     color: #000000;
     text-decoration: none;
+}
+
+.nav_visualizar_datos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(43, 255, 0, 0.965);
+    width: 1300px;
+    margin: 50px auto;
+    font-size: 25px;
+}
+
+.nav__tabla{
+    background-color: brown;color: aliceblue;
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+.table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #ccc;
 }

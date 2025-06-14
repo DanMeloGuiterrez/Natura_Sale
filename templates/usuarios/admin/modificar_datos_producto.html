@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Modificar Datos Producto{% endblock %}
+
+{% block modificar_datos_producto %}
+<div class="nav_inicio_seccion">
+    <h1 class="nav__title">Editar Producto</h1>
+    <form method="POST">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" value="{{ producto.nombre_producto }}">
+
+        <label>Precio:</label>
+        <input type="text" name="precio" value="{{ producto.precio }}">
+
+        <label>Imagen del producto:</label>
+        <input type="file" name="imagen" value="{{ producto.imagen }}" id="imagen" accept="image/*">
+
+        <label>Descripción:</label>
+        <textarea name="descripcion" id="descripcion" class="descripcion">{{ producto.descripcion }}</textarea>
+
+        <label>Stock:</label>
+        <input type="number" name="stock" value="{{ producto.stock }}">
+
+        <label>ID Categoría o Categoría:</label>
+        <select type="number" name="id_categoria" value="{{ producto.id_categoria }}" required>
+                <option value="1">Plantas Ornamentales</option>
+                <option value="2">Frutales</option>
+                <option value="3">Árboles</option>
+                <option value="4">Suculentas</option>
+                <option value="5">Enredaderas/Trepadoras/Colgantes</option>
+                <option value="6">Herramientas/Macetas</option>
+                <option value="7">Abono/Sustratos</option>
+        </select><br><br>
+
+        <button type="submit" class="btn_registrarse">Guardar Cambios</button>
+    </form>
+</div>
+{% endblock %}
