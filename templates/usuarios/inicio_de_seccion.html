@@ -1,21 +1,31 @@
-{% extends 'base.html' %}
-{% block title %} Inicio de Sección {% endblock %}
+{% extends 'base.html' %} {% block title %} Inicio de Sesión {% endblock %} {%
+block inicio_de_seccion %}
 
-{% block inicio_de_seccion %}
-    <!-- Formulario de Inicio de Sesión -->
-    <nav class="nav_inicio_seccion">
-        <h1 class="nav__title">Inicio de Sección</h1>
+<!-- Formulario de Inicio de Sesión -->
+<nav class="nav_inicio_seccion">
+  <h1 class="nav__title">Inicio de Sesión</h1>
+  {% with messages = get_flashed_messages() %} {% if messages %} {% for message
+  in messages %}
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';"
+      >&times;</span
+    >
+    {{ message }}
+  </div>
+  {% endfor %} {% endif %} {% endwith %}
 
-        <form action="" method="post">
-            <label for="username">Correo:</label>
-            <input type="text" name="username" id="username">
+  <form action="inicio_de_seccion" method="POST">
+    <label for="username">Correo:</label>
+    <input type="text" name="username" id="username" required />
 
-            <label for="password">Contraseña:</label>
-            <input type="password" name="password" id="password">
+    <label for="password">Contraseña:</label>
+    <input type="password" name="password" id="password" required />
 
-            <input type="submit" value="Iniciar Sesión" class="btn_iniciar">
-            <a href="{{ url_for('registrarse') }}" class="btn_registrarse">Registrarse</a>
-
-        </form>
-    </nav>
+    <input type="submit" value="Iniciar Sesión" class="btn_iniciar" />
+    <a href="{{ url_for('registrarse') }}" class="btn_registrarse"
+      >Registrarse</a
+    >
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+  </form>
+</nav>
 {% endblock %}

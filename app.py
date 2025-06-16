@@ -1,7 +1,12 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, flash, session
 from source.database.database import obtener_conexion #Importando conexion datebase
+from werkzeug.security import check_password_hash, generate_password_hash
+from flask_wtf.csrf import CSRFProtect
+
 
 app = Flask(__name__)
+app.secret_key = 'secret_key'  
+csrf = CSRFProtect (app)
 
 @app.route('/')
 def index():
@@ -14,12 +19,62 @@ def nosotros():
 @app.route('/contactanos')
 def contactanos():
     return render_template('empresa/contactanos.html')
+
 # Vistas para el usuario
-@app.route('/inicio_de_seccion')
+@app.route('/inicio_de_seccion', methods=["POST", "GET"])
 def inicio_de_seccion():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        
+        conexion = obtener_conexion()
+        cursor = conexion.cursor()
+        sql = '''SELECT id_usuario, nombre_cliente, apellido_cliente, email, contrasena, telefono, direccion, dni, 
+                 id_tipo_usuario FROM usuario WHERE email = %s'''
+        cursor.execute(sql, (username,))
+        fila_email = cursor.fetchone()
+        cursor.close()
+        conexion.close()
+
+        if fila_email: 
+            if  check_password_hash(fila_email[4], password):
+                # Usuario autenticado correctamente  
+                session['rol'] = fila_email[8]
+                return redirect (url_for('verificar_rol'))  # o donde desees llevarlo
+            else:
+                flash("Correo o contraseña incorrecta")
+                return render_template ('usuarios/inicio_de_seccion.html')
+        else: 
+            flash ("Usuario no registrado.")
+            return render_template ('usuarios/inicio_de_seccion.html')
+    else:
+        return render_template('usuarios/inicio_de_seccion.html')
+
+@app.route ('/login/verificar_rol', methods = ['GET', 'POST'])
+def verificar_rol ():
+    if 'rol' in session and session['rol'] is not None:
+        print(session['rol'])
+        if session['rol'] == 1:
+            return redirect (url_for('mostrar_panel_admin'))
+        else:
+            return render_template ('usuarios/inicio_de_seccion.html')
+    else:
+        return redirect(url_for('inicio_de_seccion'))
+
+@app.route ('/cerrar_sesion', methods = ['GET', 'POST'])
+def cerrar_sesion():
+        session['rol'] = session.pop(session['rol'], None) 
+        print(session['rol'])
+        flash("Sesión cerrada exitosamente.", "info")
+        return redirect(url_for('inicio_de_seccion')) 
+
+@app.route ('/usuarios/admin')
+def mostrar_panel_admin ():
+    if 'rol' in session and session['rol'] is not None:
+        return render_template ('usuarios/admin/panelAdmin.html')
     return render_template('usuarios/inicio_de_seccion.html')
 
-@app.route('/registrarse', methods = ['GET', 'POST'])
+@app.route('/registrarse', methods = ['GET', 'POST'])  
 def registrarse():
     if request.method == 'POST':
         nombre          = request.form['nombre']
@@ -29,7 +84,10 @@ def registrarse():
         telefono        = request.form['telefono']
         direccion       = request.form['direccion']
         dni             = request.form['dni']
-        id_tipo_usuario = 2
+        id_tipo_usuario = 1
+
+        password_hash = generate_password_hash(contrasena)
+        print (password_hash)
 
         conecion_database = obtener_conexion()
         miCursor = conecion_database.cursor() 
@@ -104,30 +162,35 @@ def agregar_producto():
 # Visualizar Usuarios
 @app.route('/usuarios/admin/visualizar_usuarios')
 def visualizar_usuarios():
-    conexion = obtener_conexion()
-    miCursor = conexion.cursor(dictionary=True)  
+    if 'rol' in session and session['rol'] is not None:
+        conexion = obtener_conexion()
+        miCursor = conexion.cursor(dictionary=True)  
 
-    miCursor.execute("SELECT * FROM usuario")
-    usuarios = miCursor.fetchall()
+        miCursor.execute("SELECT * FROM usuario")
+        usuarios = miCursor.fetchall()
 
-    miCursor.close()
-    conexion.close()
+        miCursor.close()
+        conexion.close()
 
-    return render_template('usuarios/admin/visualizar_usuarios.html', usuarios=usuarios)
+        return render_template('usuarios/admin/visualizar_usuarios.html', usuarios=usuarios)
+    return render_template ('usuarios/inicio_de_seccion.html')
+
 
 # Visualizar Productos
 @app.route('/usuarios/admin/visualizar_productos')
 def visualizar_productos():
-    conexion = obtener_conexion()
-    miCursor = conexion.cursor(dictionary=True)  
+    if 'rol' in session and session['rol'] is not None:
+        conexion = obtener_conexion()
+        miCursor = conexion.cursor(dictionary=True)  
 
-    miCursor.execute("SELECT * FROM producto")
-    productos = miCursor.fetchall()
+        miCursor.execute("SELECT * FROM producto")
+        productos = miCursor.fetchall()
 
-    miCursor.close()
-    conexion.close()
+        miCursor.close()
+        conexion.close()
 
-    return render_template('usuarios/admin/visualizar_productos.html', productos=productos)
+        return render_template('usuarios/admin/visualizar_productos.html', productos=productos)
+    return render_template ('usuarios/inicio_de_seccion.html')
 
 
 # Modificar Datos Usuarios

@@ -1,180 +1,238 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Nature Sale - {% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- Iconos de Edicion y Borrar-->
-</head>
-<body>
-
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Iconos de Edicion y Borrar-->
+  </head>
+  <body>
     <!-- Mini Menu superior-->
     <nav class="nav" id="titulo">
-        <!-- Despliegue -->
-        <div class="nav_despliegue">
-            <a href="#despligue_abrir" class="nav__menu_despliegue">
-                <img src="{{ url_for('static', filename='img/Imagenes/icono_despliegue.png') }}" class="nav__icon">
-            </a>
+      <!-- Despliegue -->
+      <div class="nav_despliegue">
+        <a href="#despligue_abrir" class="nav__menu_despliegue">
+          <img
+            src="{{ url_for('static', filename='img/Imagenes/icono_despliegue.png') }}"
+            class="nav__icon"
+          />
+        </a>
 
-            <a href="#despligue_cerrar" class="nav__menu_despliegue nav__menu_despliegue--second">
-                <img src="{{ url_for('static', filename='img/Imagenes/icono_despliegue_cerrar.png') }}" class="nav__icon">
-            </a>
-        </div>
-        <ul class="dropdown" id="despligue_abrir">
+        <a
+          href="#despligue_cerrar"
+          class="nav__menu_despliegue nav__menu_despliegue--second"
+        >
+          <img
+            src="{{ url_for('static', filename='img/Imagenes/icono_despliegue_cerrar.png') }}"
+            class="nav__icon"
+          />
+        </a>
+      </div>
+      <ul class="dropdown" id="despligue_abrir">
+        <li class="dropdown__list">
+          <a href="{{ url_for('index') }}" class="dropdown__link">
+            <img
+              src="{{ url_for('static', filename='img/Imagenes/icono_inicio.png') }}"
+              class="dropdown__icon"
+            />
+            <span class="dropdown__span">Inicio</span>
+          </a>
+        </li>
 
-            <li class="dropdown__list">
-                    <a href="{{ url_for('index') }}" class="dropdown__link">
-                        <img src="{{ url_for('static', filename='img/Imagenes/icono_inicio.png') }}" class="dropdown__icon">
-                        <span class="dropdown__span">Inicio</span>
-                    </a>
-            </li>
+        <li class="dropdown__list">
+          <a href="{{ url_for('nosotros') }}" class="dropdown__link">
+            <img
+              src="{{ url_for('static', filename='img/Imagenes/nosotros_icono.png') }}"
+              class="dropdown__icon"
+            />
+            <span class="dropdown__span">Nosotros</span>
+          </a>
+        </li>
 
-            <li class="dropdown__list">
-                    <a href="{{ url_for('nosotros') }}" class="dropdown__link">
-                        <img src="{{ url_for('static', filename='img/Imagenes/nosotros_icono.png') }}" class="dropdown__icon">
-                        <span class="dropdown__span">Nosotros</span>
-                    </a>
-            </li>
+        <li class="dropdown__list">
+          <a href="{{ url_for('contactanos') }}" class="dropdown__link">
+            <img
+              src="{{ url_for('static', filename='img/Imagenes/icono_contactos.webp') }}"
+              class="dropdown__icon"
+            />
+            <span class="dropdown__span">Contactos</span>
+          </a>
+        </li>
 
-            <li class="dropdown__list">
-                    <a href="{{ url_for('contactanos') }}" class="dropdown__link">
-                        <img src="{{ url_for('static', filename='img/Imagenes/icono_contactos.webp') }}" class="dropdown__icon">
-                        <span class="dropdown__span">Contactos</span>
-                    </a>
-            </li>
+        <li class="dropdown__list">
+          <a href="#" class="dropdown__link">
+            <img
+              src="{{ url_for('static', filename='img/Imagenes/mini_imagen1.png') }}"
+              class="dropdown__icon"
+            />
+            <span class="dropdown__span">Nuestros Productos</span>
+            <img
+              src="{{ url_for('static', filename='img/Imagenes/flechita_abajo.png') }}"
+              class="dropdown__arrow"
+            />
 
-            <li class="dropdown__list">
-                    <a href="#" class="dropdown__link">
-                        <img src="{{ url_for('static', filename='img/Imagenes/mini_imagen1.png') }}" class="dropdown__icon">
-                        <span class="dropdown__span">Nuestros Productos</span>
-                        <img src="{{ url_for('static', filename='img/Imagenes/flechita_abajo.png') }}" class="dropdown__arrow">
+            <input type="checkbox" class="dropdown__check" />
+          </a>
+          <div class="dropdown__content">
+            <ul class="dropdown__sub">
+              <li class="dropdown__li">
+                <a
+                  href="{{ url_for('plantas_ornamentales') }}"
+                  class="dropdown__anchor"
+                  >Plantas Ornamentales</a
+                >
+              </li>
+              <li class="dropdown__li">
+                <a href="{{ url_for('frutales') }}" class="dropdown__anchor"
+                  >Frutales</a
+                >
+              </li>
+              <li class="dropdown__li">
+                <a href="{{ url_for('arboles') }}" class="dropdown__anchor"
+                  >Arboles</a
+                >
+              </li>
 
-                        <input type="checkbox" class="dropdown__check">
-                    </a>
-                    <div class="dropdown__content">
+              <li class="dropdown__li">
+                <a href="{{ url_for('suculentas') }}" class="dropdown__anchor"
+                  >Suculentas</a
+                >
+              </li>
 
-                        <ul class="dropdown__sub">
+              <li class="dropdown__li">
+                <a
+                  href="{{ url_for('enre_plant_trepa_colgan') }}"
+                  class="dropdown__anchor"
+                  >Enredaderas, plantas trepadoras y colgantes</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
 
-                            <li class="dropdown__li">
-                                <a href="{{ url_for('plantas_ornamentales') }}" class="dropdown__anchor">Plantas Ornamentales</a>
-                            </li>
-                            <li class="dropdown__li">
-                                <a href="{{ url_for('frutales') }}" class="dropdown__anchor">Frutales</a>
-                            </li>
-                            <li class="dropdown__li">
-                                <a href="{{ url_for('arboles') }}" class="dropdown__anchor">Arboles</a>
-                            </li>
-                            
-                            <li class="dropdown__li">
-                                <a href="{{ url_for('suculentas') }}" class="dropdown__anchor">Suculentas</a>
-                            </li>
+        <li class="dropdown__list">
+          <a href="#" class="dropdown__link">
+            <img
+              src="{{ url_for('static', filename='img/Imagenes/mini_imagen2.png') }}"
+              class="dropdown__icon"
+            />
+            <span class="dropdown__span"
+              >Nuestros servicios y ventas adicionales</span
+            >
+            <img
+              src="{{ url_for('static', filename='img/Imagenes/flechita_abajo.png') }}"
+              class="dropdown__arrow"
+            />
 
-                            <li class="dropdown__li">
-                                <a href="{{ url_for('enre_plant_trepa_colgan') }}" class="dropdown__anchor">Enredaderas, plantas trepadoras y colgantes</a>
-                            </li>
-                        </ul>
+            <input type="checkbox" class="dropdown__check" />
+          </a>
+          <div class="dropdown__content">
+            <ul class="dropdown__sub">
+              <li class="dropdown__li">
+                <a
+                  href="{{ url_for('ventas_de_herramientas') }}"
+                  class="dropdown__anchor"
+                  >Ventas de Herramientas</a
+                >
+              </li>
+              <li class="dropdown__li">
+                <a
+                  href="{{ url_for('ventas_de_abono_sustratos') }}"
+                  class="dropdown__anchor"
+                  >Ventas de Abono y Sustratos</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
 
-                    </div>
-            </li>
+      <!-- Logo y nombre de la empresa -->
+      <img
+        src="{{ url_for('static', filename='img/Imagenes/logo.png') }}"
+        class="nav__logo"
+      />
 
-            <li class="dropdown__list">
-                    <a href="#" class="dropdown__link">
-                        <img src="{{ url_for('static', filename='img/Imagenes/mini_imagen2.png') }}" class="dropdown__icon">
-                        <span class="dropdown__span">Nuestros servicios y ventas adicionales</span>
-                        <img src="{{ url_for('static', filename='img/Imagenes/flechita_abajo.png') }}" class="dropdown__arrow">
+      <h1 class="nav__title">Nature Sale</h1>
 
-                        <input type="checkbox" class="dropdown__check">
-                    </a>
-                    <div class="dropdown__content">
+      <ul class="nav__list_del_menu">
+        <li class="nav__item_del_menu">
+          <a href="{{ url_for('index') }}" class="nav__link_menu">Inicio</a>
+        </li>
+        <li class="nav__item_del_menu">
+          <a href="{{ url_for('nosotros') }}" class="nav__link_menu"
+            >Nosotros</a
+          >
+        </li>
+        <li class="nav__item_del_menu">
+          <a href="{{ url_for('contactanos') }}" class="nav__link_menu"
+            >Contactanos</a
+          >
+        </li>
+        <li class="nav__item_del_menu">
+          <a href="{{ url_for('inicio_de_seccion') }}" class="nav__link_menu"
+            >Inicio de Sesión / Registrarse</a
+          >
+        </li>
+      </ul>
 
-                        <ul class="dropdown__sub">
-
-                            <li class="dropdown__li">
-                                <a href="{{ url_for('ventas_de_herramientas') }}" class="dropdown__anchor">Ventas de Herramientas</a>
-                            </li>
-                            <li class="dropdown__li">
-                                <a href="{{ url_for('ventas_de_abono_sustratos') }}" class="dropdown__anchor">Ventas de Abono y Sustratos</a>
-                            </li>                            
-                        </ul>
-                    </div>
-            </li>
-        </ul>
-
-
-        
-        <!-- Logo y nombre de la empresa -->
-        <img src="{{ url_for('static', filename='img/Imagenes/logo.png') }}" class="nav__logo" >
-
-        <h1 class="nav__title">Nature Sale</h1>
-        
-        <ul class="nav__list_del_menu">
-            <li class="nav__item_del_menu"><a href="{{ url_for('index') }}" class="nav__link_menu">Inicio</a></li>
-            <li class="nav__item_del_menu"><a href="{{ url_for('nosotros') }}" class="nav__link_menu">Nosotros</a></li>
-            <li class="nav__item_del_menu"><a href="{{ url_for('contactanos') }}" class="nav__link_menu">Contactanos</a></li>
-            <li class="nav__item_del_menu"><a href="{{ url_for('inicio_de_seccion') }}" class="nav__link_menu">Inicio de Secion / Registrarse</a></li>
-        </ul>
-        
-        <img src="{{ url_for('static', filename='img/Imagenes/telefono.png') }}" class="nav__telefono" >
-        <h1 class="nav__title">949-040-678</h1>
+      <img
+        src="{{ url_for('static', filename='img/Imagenes/telefono.png') }}"
+        class="nav__telefono"
+      />
+      <h1 class="nav__title">949-040-678</h1>
     </nav>
 
     <main>
-        {% block transision_de_imagenes %}{% endblock %}
-        {% block nuestros_productos %}{% endblock %}
-        {% block nuestros_servicios_y_ventas_adicionales %}{% endblock %}
-
-        {% block nosotros %}{% endblock %}
-        {% block contactanos %}{% endblock %}
-
-        {% block inicio_de_seccion %}{% endblock %}
-        {% block registrarse %}{% endblock %}
-
-        {% block agregar_producto %}{% endblock %}
-
-        {% block visualizar_usuarios %}{% endblock %}
-        {% block visualizar_productos %}{% endblock %}
-
-        {% block modificar_datos_usuario %}{% endblock %}
-        {% block modificar_datos_producto %}{% endblock %}
-
-        {% block eliminar_usuario %}{% endblock %}
-        {% block eliminar_producto %}{% endblock %}
-
-        {% block plantas_ornamentales %}{% endblock %}
-        {% block arboles %}{% endblock %}
-        {% block enre_plant_trepa_colgan %}{% endblock %}
-        {% block frutales %}{% endblock %}
-        {% block suculentas %}{% endblock %}
-
-        {% block ventas_de_abono_sustratos %}{% endblock %}
-        {% block ventas_de_herramientas %}{% endblock %}
-
-        
+      {% block transision_de_imagenes %}{% endblock %} {% block
+      nuestros_productos %}{% endblock %} {% block
+      nuestros_servicios_y_ventas_adicionales %}{% endblock %} {% block nosotros
+      %}{% endblock %} {% block contactanos %}{% endblock %} {% block
+      inicio_de_seccion %}{% endblock %} {% block registrarse %}{% endblock %}
+      {% block agregar_producto %}{% endblock %} {% block visualizar_usuarios
+      %}{% endblock %} {% block visualizar_productos %}{% endblock %} {% block
+      modificar_datos_usuario %}{% endblock %} {% block modificar_datos_producto
+      %}{% endblock %} {% block eliminar_usuario %}{% endblock %} {% block
+      eliminar_producto %}{% endblock %} {% block plantas_ornamentales %}{%
+      endblock %} {% block arboles %}{% endblock %} {% block
+      enre_plant_trepa_colgan %}{% endblock %} {% block frutales %}{% endblock
+      %} {% block suculentas %}{% endblock %} {% block ventas_de_abono_sustratos
+      %}{% endblock %} {% block ventas_de_herramientas %}{% endblock %}
     </main>
 
     <!-- Pie de Pagina -->
     <footer>
-        <div class="footer-container">
-            <section class="footer-left">
-                <a href="#titulo">Ir al comienzo</a>
-                <a href="#nuestros_productos">Nuestros Productos</a>
-                <a href="#servicios">Servicios</a>
-                <p>Copyright 2025</p>
-            </section>
-            <section class="footer-center">
-                <p>Jardines Edén</p>
-                <p>949040678</p>
-                <p>jardines_eden@gmail.com</p>
-                <p>Calle Federico Recavarren, 131, Int. 501</p>
-            </section>
-            <section class="footer-right">
-                <p>Horario</p>
-                <p>Lunes - Sabado: 6:00 am - 8:00 pm</p>
-                <p>Domingo: 8:00 am - 6:00 pm</p>
-                <img src="{{ url_for('static', filename='img/Imagenes/logo.png')}}" class="imagen_1">
-            </section>
-        </div>
+      <div class="footer-container">
+        <section class="footer-left">
+          <a href="#titulo">Ir al comienzo</a>
+          <a href="#nuestros_productos">Nuestros Productos</a>
+          <a href="#servicios">Servicios</a>
+          <p>Copyright 2025</p>
+        </section>
+        <section class="footer-center">
+          <p>Jardines Edén</p>
+          <p>949040678</p>
+          <p>jardines_eden@gmail.com</p>
+          <p>Calle Federico Recavarren, 131, Int. 501</p>
+        </section>
+        <section class="footer-right">
+          <p>Horario</p>
+          <p>Lunes - Sabado: 6:00 am - 8:00 pm</p>
+          <p>Domingo: 8:00 am - 6:00 pm</p>
+          <img
+            src="{{ url_for('static', filename='img/Imagenes/logo.png')}}"
+            class="imagen_1"
+          />
+        </section>
+      </div>
     </footer>
 
     <script src="{{ url_for('static', filename='js/app.js')}}"></script>
-</body>
+  </body>
 </html>
