@@ -14,7 +14,7 @@ block inicio_de_seccion %}
   </div>
   {% endfor %} {% endif %} {% endwith %}
 
-  <form action="inicio_de_seccion" method="POST">
+  <form action="" method="POST">
     <label for="username">Correo:</label>
     <input type="text" name="username" id="username" required />
 
@@ -25,7 +25,7 @@ block inicio_de_seccion %}
     <a href="{{ url_for('registrarse') }}" class="btn_registrarse"
       >Registrarse</a
     >
-    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+    {#<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />#}
   </form>
 </nav>
 {% endblock %}

@@ -1,12 +1,12 @@
 from flask import Flask, render_template, url_for, request, redirect, flash, session
 from source.database.database import obtener_conexion #Importando conexion datebase
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_wtf.csrf import CSRFProtect
+#from flask_wtf.csrf import CSRFProtect
 
 
 app = Flask(__name__)
 app.secret_key = 'secret_key'  
-csrf = CSRFProtect (app)
+#csrf = CSRFProtect (app)
 
 @app.route('/')
 def index():
@@ -53,7 +53,6 @@ def inicio_de_seccion():
 @app.route ('/login/verificar_rol', methods = ['GET', 'POST'])
 def verificar_rol ():
     if 'rol' in session and session['rol'] is not None:
-        print(session['rol'])
         if session['rol'] == 1:
             return redirect (url_for('mostrar_panel_admin'))
         else:
@@ -71,8 +70,8 @@ def cerrar_sesion():
 @app.route ('/usuarios/admin')
 def mostrar_panel_admin ():
     if 'rol' in session and session['rol'] is not None:
-        return render_template ('usuarios/admin/panelAdmin.html')
-    return render_template('usuarios/inicio_de_seccion.html')
+        return render_template ('admin_ejemplo.html')
+    return redirect (url_for('inicio_de_seccion'))
 
 @app.route('/registrarse', methods = ['GET', 'POST'])  
 def registrarse():
@@ -138,26 +137,28 @@ def ventas_de_herramientas():
 
 @app.route('/usuarios/admin/agregar_producto', methods=['GET', 'POST'])
 def agregar_producto():
-    if request.method == 'POST':
-        nombre_producto = request.form['nombre']
-        precio = request.form['precio']
-        imagen = request.form['imagen']
-        descripcion = request.form['descripcion']
-        stock = request.form['stock']
-        id_categoria = request.form['id_categoria']
+    if 'rol' in session and session['rol'] is not None:
+        if request.method == 'POST':
+            nombre_producto = request.form['nombre']
+            precio = request.form['precio']
+            imagen = request.form['imagen']
+            descripcion = request.form['descripcion']
+            stock = request.form['stock']
+            id_categoria = request.form['id_categoria']
 
-        conecion_database = obtener_conexion()
-        miCursor = conecion_database.cursor() 
+            conecion_database = obtener_conexion()
+            miCursor = conecion_database.cursor() 
 
-        sql = "INSERT INTO producto(nombre_producto, precio, imagen, descripcion, stock, id_categoria) VALUES(%s, %s, %s, %s, %s, %s)"
-        valores = (nombre_producto, precio, imagen, descripcion, stock, id_categoria)
+            sql = "INSERT INTO producto(nombre_producto, precio, imagen, descripcion, stock, id_categoria) VALUES(%s, %s, %s, %s, %s, %s)"
+            valores = (nombre_producto, precio, imagen, descripcion, stock, id_categoria)
 
-        miCursor.execute(sql, valores)
-        conecion_database.commit()
+            miCursor.execute(sql, valores)
+            conecion_database.commit()
 
-        miCursor.close()
-        conecion_database.close()
-    return render_template('usuarios/admin/agregar_producto.html')
+            miCursor.close()
+            conecion_database.close()
+        return render_template('usuarios/admin/agregar_producto.html')
+    return redirect (url_for('inicio_de_seccion'))
 
 # Visualizar Usuarios
 @app.route('/usuarios/admin/visualizar_usuarios')
@@ -173,7 +174,7 @@ def visualizar_usuarios():
         conexion.close()
 
         return render_template('usuarios/admin/visualizar_usuarios.html', usuarios=usuarios)
-    return render_template ('usuarios/inicio_de_seccion.html')
+    return redirect (url_for('inicio_de_seccion'))
 
 
 # Visualizar Productos
@@ -190,7 +191,7 @@ def visualizar_productos():
         conexion.close()
 
         return render_template('usuarios/admin/visualizar_productos.html', productos=productos)
-    return render_template ('usuarios/inicio_de_seccion.html')
+    return redirect (url_for('inicio_de_seccion'))
 
 
 # Modificar Datos Usuarios
@@ -318,6 +319,8 @@ def eliminar_producto(id_producto):
     miCursor.close()
     conexion.close()
     return render_template('usuarios/admin/eliminar_producto.html', producto=producto)
+
+
 
 
 if __name__ == '__main__':
