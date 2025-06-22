@@ -74,7 +74,7 @@ main {
 /* Transicion de imagenes */
 
 .imagenes_transision{
-    position: relative; /* Necesario para que funcione z-index */
+    position: relative; 
     z-index: 1;
 
     display: flex;
@@ -134,9 +134,145 @@ main {
 .texto_imagen p {
     margin: 10px 0 0 0;
 }
+/*Carrito*/
 
+.submenu {
+    list-style: none;
+    position: relative;
+}
+.submenu #carrito{
+    display: none;
+}
+.submenu:hover #carrito {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 2;
+    background-color: #b9e4b8;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    width: 350px;
+
+    max-height: 300px;
+    overflow-y: auto;
+    
+    border-radius: 10px;
+}
+
+/*  ICONO DEL CARRITO  */
+#img-carrito {
+    width: 40px;     
+    height: auto;
+    cursor: pointer;
+}
+
+/*  TABLA DEL CARRITO  */
+#lista-carrito {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+#lista-carrito th, 
+#lista-carrito td {
+    color: #000;
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+#lista-carrito img {
+    width: 40px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.botones-carrito {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 10px; /* Espacio entre botones */
+}
+
+/* ==== BOTÓN VACIAR Y PAGAR CARRITO ==== */
+.boton_vaciar {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    padding: 8px 10px;
+    background-color: #ff4d4d;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+.boton_pagar {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    padding: 8px 10px;
+    background-color: #03f403;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px; 
+    transition: background 0.3s ease;
+}
+
+.boton_vaciar:hover {
+    background-color: #cc0000;
+}
+
+.boton_pagar:hover {
+    background-color: #09aa04;
+}
+
+/* ==== BOTÓN ELIMINAR INDIVIDUAL ==== */
+.borrar {
+    background-color: #111;
+    border-radius: 50%;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.borrar:hover {
+    background-color: #ff0000;
+}
+
+#resumen-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0; /* Espaciado arriba y abajo */
+}
+
+#resumen-tabla th, 
+#resumen-tabla td {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
 
 /* Nuestros Productos */
+.nav_fondo_categoria{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(43, 255, 0, 0.965);
+    width: 1600px;
+    margin: 50px auto;
+    font-size: 25px;
+}
+
 
 .nav_categoria {
 
@@ -182,7 +318,80 @@ main {
 }
 
 
+.nav_categoria_diseño {
+    display: flex;
+    font-size: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
 
+    margin-top: 75px; /* Aumenta la separación del encabezado */
+}
+
+.nav__title_categoria {
+    margin: 0;
+    font-size: 50px; /* Aumentar el tamaño */
+    
+}
+
+/*Diseño de productos*/
+
+.producto-fila {
+    display: flex;
+    padding: 20px;
+    gap: 10px;
+}
+
+.columna {
+    border: 1px solid #000;
+    background-color: #bbf08d;
+    padding: 15px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 350px;
+}
+.columna-descripcion{
+    width: 700px;
+}
+
+.columna-imagen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.columna-precio {
+    text-align: center;
+}
+
+.cantidad-carrito {
+    display: flex;
+    justify-content: center;     /* Centra horizontalmente */
+    align-items: center;         /* Centra verticalmente */
+    gap: 10px;
+}
+
+.cantidad-carrito input {
+    width: 50px;
+    text-align: center;
+    padding: 5px;
+}
+
+.agregar-carrito {
+    padding: 6px 12px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.agregar-carrito:hover {
+    background-color: #218838;
+}
 
 /* Nuestros servicios y ventas adicionales */
 
@@ -246,8 +455,6 @@ main {
     font-weight: bold;
 } 
 
-
-
 /* Pie de página */
 footer {
     background-color: black;
@@ -301,12 +508,12 @@ footer a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 70px;
     border: 2px solid #000000;
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(43, 255, 0, 0.965);
-    width: 400px;
+    width: 430px;
     margin: 40px auto;
     font-size: 18px;
 }
@@ -321,7 +528,6 @@ footer a:hover {
 .nav_inicio_seccion input[type="text"],
 .nav_inicio_seccion input[type="password"],
 .nav_inicio_seccion input[type="number"],
-.nav_inicio_seccion input[type="file"],
 .nav_inicio_seccion input[type="file"],
 select[name="id_categoria"]{
     padding: 12px;
@@ -383,6 +589,27 @@ select[name="id_categoria"]{
     background-color: #1e7e34;
 }
 
+/* Ojito */
+.ojito {
+    position: relative;
+}
+
+.ojitoinput {
+    width: 100%;
+    padding-right: 40px; /* espacio para el ojito */
+    box-sizing: border-box;
+}
+
+#togglePassword {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
 /* Despligue */
 
 .nav:has( .dropdown:target ){
@@ -404,7 +631,7 @@ select[name="id_categoria"]{
 .nav__menu_despliegue{
     grid-area: img;
     position: relative;
-    z-index: 10;
+    z-index: 5;
 
     transform: var(--img1);
 }
@@ -426,7 +653,7 @@ select[name="id_categoria"]{
     top: -20px;
     bottom: 0;
     padding: 1em;
-    z-index: 2;
+    z-index: 3;
     border-radius: 15px;
 
     display: grid;
@@ -535,4 +762,11 @@ select[name="id_categoria"]{
 .table td {
     padding: 8px 12px;
     border-bottom: 1px solid #ccc;
+}
+
+/* Posiciona el botón cerrar sesión abajo */
+.cerrar_sesion_abajo {
+    position: relative;
+    padding-bottom: 10px;
+    
 }

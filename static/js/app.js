@@ -1,3 +1,4 @@
+// Transicion de Imagenes   
 let imagenes = [
     {
         "url": "/static/img/Imagenes/imagen1.png",
@@ -69,3 +70,4 @@ function posicionCarrusel() {
         }
     } 
 }
+

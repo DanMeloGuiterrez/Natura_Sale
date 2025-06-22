@@ -2,13 +2,39 @@
 {% block title %} Ventas de Abono y Sustratos {% endblock %}
 
 {% block ventas_de_abono_sustratos %}
-    <!-- ventas_de_abono_sustratos -->
-
-    <nav class="nav_categoria" id="nuestros_productos">
-        <h1 class="nav__title">
-            Ventas de Abono y Sustratos
-        </h1>
+    <nav class="nav_categoria_diseño" id="nuestros_productos">
+        <h1 class="nav__title_categoria">Ventas de Abono y Sustratos</h1>
     </nav>
+
+    <div class="nav_fondo_categoria">
+        {% for producto in ventas_de_abono_sustratos %}
+        <div class="producto-fila producto">
+            <!-- Columna 1: Imagen y nombre -->
+            <div class="columna columna-imagen">
+                <img src="{{ url_for('static', filename='img/Abono y Sustratos/' ~ producto.imagen) }}" alt="{{ producto.nombre_producto }}">
+                <h2>{{ producto.nombre_producto }}</h2>
+            </div>
+
+            <!-- Columna 2: Descripción -->
+            <div class="columna columna-descripcion">
+                <p>{{ producto.descripcion }}</p>
+            </div>
+
+            <!-- Columna 3: Precio, stock y agregar al carrito -->
+            <div class="columna columna-precio">
+                <h2>S/ {{ producto.precio }}</h2>
+                <p><strong>Stock:</strong> {{ producto.stock }}</p>
+                <div class="cantidad-carrito">
+                    <button class="btn-menos">-</button>
+                    <input type="number" value="1" min="1" class="input-cantidad">
+                    <button class="btn-mas">+</button>
+                    <button class="agregar-carrito" data-id="{{ producto.id_producto }}">Agregar al carrito</button>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
     
     

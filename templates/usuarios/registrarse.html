@@ -17,16 +17,20 @@
             <input type="text" name="gmail" id="gmail">
 
             <label for="contrasena">Contraseña:</label>
-            <input type="text" name="contrasena" id="contrasena">
+            <div class="ojito">
+                <input type="password" name="contrasena" id="contrasena">
+                <i class='bx bx-eye' id="togglePassword"></i>
+            </div>
 
             <label for="telefono">Teléfono:</label>
-            <input type="number" name="telefono" id="telefono">
+            <input type="text" name="telefono" id="telefono" pattern="\d{9}" maxlength="9" required>
+
 
             <label for="direccion">Dirección:</label>
             <input type="text" name="direccion" id="direccion">
 
             <label for="dni">DNI:</label>
-            <input type="number" name="dni" id="dni">
+            <input type="text" name="dni" id="dni" pattern="\d{8}" maxlength="8" required>
 
             <input type="submit" value="Registrarse" class="btn_registrarse">
         </form>

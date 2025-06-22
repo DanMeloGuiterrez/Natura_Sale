@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Perfil Usuario{% endblock %}
+
+{% block mostrar_panel_usuario %}
+<div class="nav_visualizar_datos">
+    <h1>Bienvenido Usuario {{ nombre }}</h1>
+    <h2>Datos del Usuario</h2>
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr><th>Nombre:</th><td>{{ nombre }}</td></tr>
+        <tr><th>Apellido:</th><td>{{ apellido }}</td></tr>
+        <tr><th>Email:</th><td>{{ email }}</td></tr>
+        <tr><th>Teléfono:</th><td>{{ telefono }}</td></tr>
+        <tr><th>Dirección:</th><td>{{ direccion }}</td></tr>
+        <tr><th>DNI:</th><td>{{ dni }}</td></tr>
+    </table>
+</div>
+
+{% endblock %}
