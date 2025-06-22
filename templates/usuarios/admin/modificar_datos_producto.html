@@ -4,15 +4,18 @@
 {% block modificar_datos_producto %}
 <div class="nav_inicio_seccion">
     <h1 class="nav__title">Editar Producto</h1>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <label>Nombre:</label>
         <input type="text" name="nombre" value="{{ producto.nombre_producto }}">
 
         <label>Precio:</label>
-        <input type="text" name="precio" value="{{ producto.precio }}">
+        <input type="number" step="0.01" name="precio" value="{{ producto.precio }}" required>
 
-        <label>Imagen del producto:</label>
-        <input type="file" name="imagen" value="{{ producto.imagen }}" id="imagen" accept="image/*">
+        <label>Imagen actual:</label>
+        <img src="{{ url_for('static', filename='img/' + producto.imagen) }}" width="150">
+
+        <label>Subir nueva imagen (opcional):</label>
+        <input type="file" name="imagen">
 
         <label>Descripción:</label>
         <textarea name="descripcion" id="descripcion" class="descripcion">{{ producto.descripcion }}</textarea>
@@ -21,14 +24,14 @@
         <input type="number" name="stock" value="{{ producto.stock }}">
 
         <label>ID Categoría o Categoría:</label>
-        <select type="number" name="id_categoria" value="{{ producto.id_categoria }}" required>
-                <option value="1">Plantas Ornamentales</option>
-                <option value="2">Frutales</option>
-                <option value="3">Árboles</option>
-                <option value="4">Suculentas</option>
-                <option value="5">Enredaderas/Trepadoras/Colgantes</option>
-                <option value="6">Herramientas/Macetas</option>
-                <option value="7">Abono/Sustratos</option>
+        <select name="id_categoria" required>
+            <option value="1" {% if producto.id_categoria == 1 %}selected{% endif %}>Plantas Ornamentales</option>
+            <option value="2" {% if producto.id_categoria == 2 %}selected{% endif %}>Frutales</option>
+            <option value="3" {% if producto.id_categoria == 3 %}selected{% endif %}>Árboles</option>
+            <option value="4" {% if producto.id_categoria == 4 %}selected{% endif %}>Suculentas</option>
+            <option value="5" {% if producto.id_categoria == 5 %}selected{% endif %}>Enredaderas/Trepadoras/Colgantes</option>
+            <option value="6" {% if producto.id_categoria == 6 %}selected{% endif %}>Herramientas/Macetas</option>
+            <option value="7" {% if producto.id_categoria == 7 %}selected{% endif %}>Abono/Sustratos</option>
         </select><br><br>
 
         <button type="submit" class="btn_registrarse">Guardar Cambios</button>

@@ -11,10 +11,12 @@
             <input type="text" name="username" id="username">
 
             <label for="password">Contraseña:</label>
-            <input type="password" name="password" id="password">
-
+            <div class="ojito">
+                <input type="password" name="contrasena" id="contrasena">
+                <i class='bx bx-eye' id="togglePassword"></i>
+            </div>
             <input type="submit" value="Iniciar Sesión" class="btn_iniciar">
-            <a href="{{ url_for('registrarse') }}" class="btn_registrarse">Registrarse</a>
+            <a href="{{ url_for('registrarse_bp.registrarse') }}" class="btn_registrarse">Registrarse</a>
 
         </form>
     </nav>
