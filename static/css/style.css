@@ -588,6 +588,25 @@ select[name="id_categoria"]{
 .btn_registrarse:hover {
     background-color: #1e7e34;
 }
+/* Ojito */
+.ojito {
+    position: relative;
+}
+
+.ojitoinput {
+    width: 100%;
+    padding-right: 40px; /* espacio para el ojito */
+    box-sizing: border-box;
+}
+
+#togglePassword {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 30px;
+    cursor: pointer;
+}
 
 /* Ojito */
 .ojito {
@@ -763,7 +782,10 @@ select[name="id_categoria"]{
     padding: 8px 12px;
     border-bottom: 1px solid #ccc;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> recuperar_codigo_mejorado
 /* Posiciona el botón cerrar sesión abajo */
 .cerrar_sesion_abajo {
     position: relative;
