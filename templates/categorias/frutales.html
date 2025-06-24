@@ -11,11 +11,7 @@
         <div class="producto-fila producto">
             <!-- Columna 1: Imagen y nombre -->
             <div class="columna columna-imagen">
-<<<<<<< HEAD
-                <img src="{{ url_for('static', filename='img/Frutales/' ~ producto.imagen) }}" alt="{{ producto.nombre_producto }}">
-=======
                 <img src="{{ url_for('static', filename='img/' ~ producto.imagen) }}" alt="{{ producto.nombre_producto }}" style="max-width: 200px; max-height: 200px; object-fit: cover;">
->>>>>>> recuperar_codigo_mejorado
                 <h2>{{ producto.nombre_producto }}</h2>
             </div>
 

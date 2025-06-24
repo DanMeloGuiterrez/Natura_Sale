@@ -74,7 +74,7 @@ main {
 /* Transicion de imagenes */
 
 .imagenes_transision{
-    position: relative; 
+    position: relative; /* Necesario para que funcione z-index */
     z-index: 1;
 
     display: flex;
@@ -529,6 +529,7 @@ footer a:hover {
 .nav_inicio_seccion input[type="password"],
 .nav_inicio_seccion input[type="number"],
 .nav_inicio_seccion input[type="file"],
+.nav_inicio_seccion input[type="file"],
 select[name="id_categoria"]{
     padding: 12px;
     font-size: 20px;
@@ -608,27 +609,6 @@ select[name="id_categoria"]{
     cursor: pointer;
 }
 
-/* Ojito */
-.ojito {
-    position: relative;
-}
-
-.ojitoinput {
-    width: 100%;
-    padding-right: 40px; /* espacio para el ojito */
-    box-sizing: border-box;
-}
-
-#togglePassword {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    font-size: 30px;
-    cursor: pointer;
-}
-
-
 /* Despligue */
 
 .nav:has( .dropdown:target ){
@@ -650,7 +630,7 @@ select[name="id_categoria"]{
 .nav__menu_despliegue{
     grid-area: img;
     position: relative;
-    z-index: 5;
+    z-index: 10;
 
     transform: var(--img1);
 }
@@ -672,7 +652,7 @@ select[name="id_categoria"]{
     top: -20px;
     bottom: 0;
     padding: 1em;
-    z-index: 3;
+    z-index: 2;
     border-radius: 15px;
 
     display: grid;
@@ -782,10 +762,6 @@ select[name="id_categoria"]{
     padding: 8px 12px;
     border-bottom: 1px solid #ccc;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> recuperar_codigo_mejorado
 /* Posiciona el botón cerrar sesión abajo */
 .cerrar_sesion_abajo {
     position: relative;

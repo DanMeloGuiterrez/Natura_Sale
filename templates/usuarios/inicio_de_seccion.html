@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-{% block title %} Inicio de Sesión  {% endblock %}
+{% block title %} Inicio de Sección {% endblock %}
 
 {% block inicio_de_seccion %}
     <!-- Formulario de Inicio de Sesión -->
     <nav class="nav_inicio_seccion">
-        <h1 class="nav__title">Inicio de Sesión </h1>
+        <h1 class="nav__title">Inicio de Sección</h1>
 
         <form action="" method="post">
             <label for="username">Correo:</label>
@@ -17,10 +17,6 @@
             </div>
             <input type="submit" value="Iniciar Sesión" class="btn_iniciar">
             <a href="{{ url_for('registrarse_bp.registrarse') }}" class="btn_registrarse">Registrarse</a>
-<<<<<<< HEAD
-
-=======
->>>>>>> recuperar_codigo_mejorado
 
         </form>
     </nav>
