@@ -2,11 +2,11 @@ from flask import Flask, render_template
 #Funciones
 from source.rutas.inicio_de_seccion import inicio_de_seccion_bp
 from source.rutas.registrarse import registrarse_bp
+from source.rutas.mostrar_panel_usuario import mostrar_panel_usuario_bp
 # Admin
 from source.rutas.administrador.verificar_rol import verificar_rol_bp
 from source.rutas.administrador.cerrar_sesion import cerrar_sesion_bp
 from source.rutas.administrador.mostrar_panel_admin import mostrar_panel_admin_bp
-from source.rutas.mostrar_panel_usuario import mostrar_panel_usuario_bp
 # Cateogria
 from source.rutas.plantas_ornamentales import plantas_ornamentales_bp
 from source.rutas.frutales import frutales_bp
@@ -42,6 +42,7 @@ app.register_blueprint(verificar_rol_bp)
 app.register_blueprint(cerrar_sesion_bp)
 app.register_blueprint(mostrar_panel_admin_bp)
 app.register_blueprint(mostrar_panel_usuario_bp)
+
 
 # Funciones para el Usuario
 app.register_blueprint(inicio_de_seccion_bp)

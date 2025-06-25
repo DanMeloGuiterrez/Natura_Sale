@@ -34,7 +34,7 @@ def inicio_de_seccion():
 
                 return redirect (url_for('verificar_rol_bp.verificar_rol'))  # o donde desees llevarlo
             else:
-                flash("Correo o contraseña incorrecta")
+                flash("Contraseña incorrecta")
                 return render_template ('usuarios/inicio_de_seccion.html')
         else: 
             flash ("Usuario no registrado.")

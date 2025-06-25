@@ -6,6 +6,17 @@
     <nav class="nav_inicio_seccion">
         <h1 class="nav__title">Inicio de Sección</h1>
 
+        <!-- Mostrar mensajes flash -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="alerta">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
         <form action="" method="post">
             <label for="username">Correo:</label>
             <input type="text" name="username" id="username">

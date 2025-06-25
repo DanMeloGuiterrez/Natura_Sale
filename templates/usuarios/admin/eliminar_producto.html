@@ -11,7 +11,7 @@
         <tr><th style="text-align: left; padding: 5px;">Precio:</th><td>S/ {{ producto.precio }}</td></tr>
         <tr><th style="text-align: left; padding: 5px;">Imagen:</th>
             <td>
-                <img src="{{ producto.imagen }}" alt="Imagen" width="120"><br>
+                <img src="{{ url_for('static', filename='img/' ~ producto.imagen) }}" alt="{{ producto.nombre_producto }}" style="max-width: 200px; max-height: 200px; object-fit: cover;">
                 <small>{{ producto.imagen.split('/')[-1] }}</small>
             </td>
         </tr>
