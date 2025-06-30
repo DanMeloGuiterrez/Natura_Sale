@@ -23,6 +23,12 @@
         <label>DNI:</label>
         <input type="text" name="dni" value="{{ usuario.dni }}">
 
+        <label>Rango:</label>
+        <select name="id_tipo_usuario" required>
+            <option value="1" {% if usuario.id_tipo_usuario == 1 %}selected{% endif %}>Administrador</option>
+            <option value="2" {% if usuario.id_tipo_usuario == 2 %}selected{% endif %}>Usuario</option>
+        </select>
+
         <button type="submit" class="btn_registrarse">Guardar Cambios</button>
     </form>
 </div>

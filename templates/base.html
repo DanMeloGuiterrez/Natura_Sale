@@ -120,6 +120,27 @@
                 {% endif %}
             </li>
 
+
+           <li class="dropdown__list">
+                {% if session.get('rol') == 1 %}
+                    <a href="{{ url_for('visualizar_historial_compras_bp.visualizar_historial_compras') }}" class="dropdown__link">
+                        <img src="{{ url_for('static', filename='img/Imagenes/historial.png') }}" class="dropdown__icon">
+                        <span class="dropdown__span">Historial de Pedidos</span>
+                    </a>
+                {% elif session.get('rol') == 2 %}
+                    <a href="{{ url_for('historial_compras_bp.historial_compras') }}" class="dropdown__link">
+                        <img src="{{ url_for('static', filename='img/Imagenes/historial.png') }}" class="dropdown__icon">
+                        <span class="dropdown__span">Historial de Pedidos</span>
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('inicio_de_seccion_bp.inicio_de_seccion') }}" class="dropdown__link">
+                        <img src="{{ url_for('static', filename='img/Imagenes/historial.png') }}" class="dropdown__icon">
+                        <span class="dropdown__span">Historial de Pedidos</span>
+                    </a>
+                {% endif %}
+            </li>
+
+
             <li class="dropdown__list">
                 {% if session['rol'] == 1 %}
                     <a href="{{ url_for('agregar_producto_bp.agregar_producto') }}" class="dropdown__link">
@@ -219,6 +240,10 @@
 
         {% block inicio_de_seccion %}{% endblock %}
         {% block registrarse %}{% endblock %}
+        {% block olvide_contrasena %}{% endblock %}
+        {% block factura_para_usuario %}{% endblock %}
+        {% block historial_compras %}{% endblock %}
+        
         {% block verificar_rol %}{% endblock %}
         {% block mostrar_panel_admin %}{% endblock %}
         {% block mostrar_panel_usuario %}{% endblock %}
@@ -227,6 +252,7 @@
 
         {% block visualizar_usuarios %}{% endblock %}
         {% block visualizar_productos %}{% endblock %}
+        {% block visualizar_historial_compras %}{% endblock %}
 
         {% block modificar_datos_usuario %}{% endblock %}
         {% block modificar_datos_producto %}{% endblock %}

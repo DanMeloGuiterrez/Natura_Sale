@@ -31,6 +31,9 @@ def registrarse():
         miCursor.close()
         conecion_database.close()
 
+        # Obtener el id del nuevo usuario registrado
+        id_usuario = miCursor.lastrowid
+        
         # Guardar datos del usuario en sesión
         session['nombre'] = nombre
         session['apellido'] = apellido
@@ -39,6 +42,12 @@ def registrarse():
         session['direccion'] = direccion
         session['dni'] = dni
         session['rol'] = id_tipo_usuario
+
+        conexion = obtener_conexion()
+        with conexion.cursor() as cursor:
+            cursor.execute("INSERT INTO factura (id_usuario) VALUES (%s)", (id_usuario,))
+            conexion.commit()
+        conexion.close()
 
         return redirect(url_for('mostrar_panel_usuario_bp.mostrar_panel_usuario'))
     

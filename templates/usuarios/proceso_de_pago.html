@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% block title %} Proceso de Pago {% endblock %}
 
+
 {% block proceso_de_pago %}
 <nav class="nav_inicio_seccion">
-
-    <!-- Este bloque es el contenido del recibo -->
     <div id="recibo">
-        <h1 style="text-align: center; font-size: 36px;">Número del Recibo: <span id="numero-recibo" style="font-size: 42px; color: #333;"></span></h1>
+        <div> 
+            <h1 style="font-size: 36px;">
+                Número del Cliente: 
+                <span id="numero-recibo">N°- {{ session['id_usuario'] }}</span>
+            </h1>
+        </div>
 
         <h2 style="margin-top: 40px;">Cliente</h2>
         <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
@@ -30,16 +34,20 @@
                 </tr>
             </thead>
             <tbody id="resumen-body">
-                <!-- Se rellena desde JS -->
+                <!-- JS rellena esto -->
             </tbody>
         </table>
 
         <h2 style="text-align: right; margin-top: 20px;">Total: S/ <span id="total-pago">0.00</span></h2>
     </div>
 
-    <!--  Fin del recibo -->
+    <!-- Formulario oculto para enviar -->
+    <form id="form-pago" method="POST" action="/registrar_pago">
+        <input type="hidden" name="carrito_json" id="carrito-json">
+        <input type="hidden" name="fecha_envio" id="input-fecha_envio">
+        <input type="hidden" name="total" id="input-total">
+        <button type="button" onclick="descargarPDF()">Realizar el Pago</button>
+    </form>
 
-    <!-- Botón para descargar el PDF -->
-    <button onclick="descargarPDF()">Realizar el Pago</button>
 </nav>
 {% endblock %}

@@ -3,10 +3,16 @@ from flask import Flask, render_template
 from source.rutas.inicio_de_seccion import inicio_de_seccion_bp
 from source.rutas.registrarse import registrarse_bp
 from source.rutas.mostrar_panel_usuario import mostrar_panel_usuario_bp
+from source.rutas.olvide_contrasena import olvide_contrasena_bp
+from source.rutas.historial_compras import historial_compras_bp
+from source.rutas.factura_para_usuario import factura_para_usuario_bp
+from source.rutas.registrar_pago import registrar_pago_bp
+
 # Admin
 from source.rutas.administrador.verificar_rol import verificar_rol_bp
 from source.rutas.administrador.cerrar_sesion import cerrar_sesion_bp
 from source.rutas.administrador.mostrar_panel_admin import mostrar_panel_admin_bp
+
 # Cateogria
 from source.rutas.plantas_ornamentales import plantas_ornamentales_bp
 from source.rutas.frutales import frutales_bp
@@ -14,21 +20,19 @@ from source.rutas.arboles import arboles_bp
 from source.rutas.suculentas import suculentas_bp
 from source.rutas.enre_plant_trepa_colgan import enre_plant_trepa_colgan_bp
 
+
 from source.rutas.ventas_de_abono_sustratos import ventas_de_abono_sustratos_bp
 from source.rutas.ventas_de_herramientas import ventas_de_herramientas_bp
 # Admin
 from source.rutas.administrador.agregar_producto import agregar_producto_bp
-
+from source.rutas.administrador.visualizar_historial_compras import visualizar_historial_compras_bp
 from source.rutas.administrador.visualizar_usuarios import visualizar_usuarios_bp
-
 from source.rutas.administrador.visualizar_productos import visualizar_productos_bp
 
 from source.rutas.administrador.editar_usuario import editar_usuario_bp
-
 from source.rutas.administrador.editar_producto import editar_producto_bp
 
 from source.rutas.administrador.eliminar_usuario import eliminar_usuario_bp
-
 from source.rutas.administrador.eliminar_producto import eliminar_producto_bp
 
 from source.rutas.proceso_de_pago import proceso_de_pago_bp
@@ -42,7 +46,10 @@ app.register_blueprint(verificar_rol_bp)
 app.register_blueprint(cerrar_sesion_bp)
 app.register_blueprint(mostrar_panel_admin_bp)
 app.register_blueprint(mostrar_panel_usuario_bp)
-
+app.register_blueprint(olvide_contrasena_bp)
+app.register_blueprint(historial_compras_bp)
+app.register_blueprint(factura_para_usuario_bp)
+app.register_blueprint(registrar_pago_bp)
 
 # Funciones para el Usuario
 app.register_blueprint(inicio_de_seccion_bp)
@@ -64,6 +71,9 @@ app.register_blueprint(agregar_producto_bp)
 
 # Visualizar Usuarios
 app.register_blueprint(visualizar_usuarios_bp)
+
+# Visualizar Historial
+app.register_blueprint(visualizar_historial_compras_bp) 
 
 # Visualizar Productos
 app.register_blueprint(visualizar_productos_bp)

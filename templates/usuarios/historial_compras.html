@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Historial de Compras{% endblock %}
+
+{% block historial_compras %}
+<div class="nav_visualizar_datos">
+    <h2>Historial de Compras</h2>
+    {% if historial %}
+        <table class="table">
+            <thead class="nav__tabla">
+                <th>Fecha</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+            </tr>
+            </thead>
+            {% for pedido in historial %}
+            <tr>
+                <td style="text-align: center;">{{ pedido.fecha_envio.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <td style="text-align: center;">{{ pedido.nombre_producto }}</td>
+                <td style="text-align: center;">{{ pedido.cantidad }}</td>
+                <td style="text-align: center;">S/. {{ '%.2f' | format(pedido.precio_subtotal) }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No tienes pedidos todavía.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

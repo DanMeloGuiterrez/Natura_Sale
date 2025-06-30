@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Historial General de Compras{% endblock %}
+
+{% block visualizar_historial_compras %}
+<div class="nav_visualizar_datos">
+    <h1 class="nav__title">Historial de Compras</h1>
+    <table class="table">
+        <thead class="nav__tabla">
+            <tr>
+                <th>ID Pedido</th>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th>Fecha</th>
+                <th>Factura</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pedido in historial %}
+        <tr>
+            <td>{{ pedido.id_productos_pedidos }}</td>
+            <td>{{ pedido.nombre_usuario }} {{ pedido.apellido_usuario }}</td>
+            <td>{{ pedido.nombre_producto }}</td>
+            <td>{{ pedido.cantidad }}</td>
+            <td>S/. {{ '%.2f' | format(pedido.precio_subtotal) }}</td>
+            <td>{{ pedido.fecha_envio.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            <td>{{ pedido.id_factura }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

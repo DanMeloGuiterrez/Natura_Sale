@@ -530,7 +530,8 @@ footer a:hover {
 .nav_inicio_seccion input[type="number"],
 .nav_inicio_seccion input[type="file"],
 .nav_inicio_seccion input[type="file"],
-select[name="id_categoria"]{
+select[name="id_categoria"],
+select[name="id_tipo_usuario"]{
     padding: 12px;
     font-size: 20px;
     border: 1px solid #343333;
@@ -549,10 +550,11 @@ select[name="id_categoria"]{
     resize: vertical;      /* El usuario podrá redimensionarlo verticalmente si quiere */
 }
 
-/* Registrarse */
+/* Inicio de Seccion */
 
 .btn_iniciar,
-.btn_registrarse {
+.btn_registrarse,
+.btn_olvide_contraseña {
     display: inline-block; /* Muy importante para aplicar padding correctamente */
     text-align: center;
     text-decoration: none;
@@ -567,11 +569,6 @@ select[name="id_categoria"]{
     transition: background-color 0.3s ease;
 }
 
-.btn_registrarse:hover {
-    background-color: #1e7e34;
-}
-
-
 .btn_iniciar {
     background-color: #007BFF;
     color: white;
@@ -581,14 +578,26 @@ select[name="id_categoria"]{
     background-color: #0056b3;
 }
 
+.btn_registrarse:hover {
+    background-color: #1e7e34;
+}
+
 .btn_registrarse {
     background-color: #28a745;
     color: white;
 }
 
-.btn_registrarse:hover {
-    background-color: #1e7e34;
+
+.btn_olvide_contraseña {
+    background-color: #f09c4e;
+    color: white;
 }
+
+.btn_olvide_contraseña:hover {
+    background-color: #ff7b00;
+}
+
+
 /* Ojito */
 .ojito {
     position: relative;
@@ -744,9 +753,10 @@ select[name="id_categoria"]{
     border-radius: 20px;
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(43, 255, 0, 0.965);
-    width: 1300px;
+    width: 90%;
     margin: 50px auto;
     font-size: 25px;
+    
 }
 
 .nav__tabla{
@@ -758,8 +768,8 @@ select[name="id_categoria"]{
     border-collapse: separate;
     border-spacing: 0 10px;
 }
-.table td {
-    padding: 8px 12px;
+.table th, .table td {
+    padding: 10px 15px;
     border-bottom: 1px solid #ccc;
 }
 /* Posiciona el botón cerrar sesión abajo */
@@ -768,4 +778,6 @@ select[name="id_categoria"]{
     padding-bottom: 10px;
     
 }
+
+
 

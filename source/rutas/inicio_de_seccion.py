@@ -24,6 +24,7 @@ def inicio_de_seccion():
         if fila_email: 
             if  check_password_hash(fila_email[4], password):
                 # Usuario autenticado correctamente  
+                session['id_usuario'] = fila_email[0] 
                 session['rol'] = fila_email[8]
                 session['nombre'] = fila_email[1]      # nombre_cliente
                 session['apellido'] = fila_email[2]    # apellido_cliente
@@ -31,7 +32,7 @@ def inicio_de_seccion():
                 session['telefono'] = fila_email[5]    # telefono
                 session['direccion'] = fila_email[6]   # direccion
                 session['dni'] = fila_email[7]         # dni
-
+                
                 return redirect (url_for('verificar_rol_bp.verificar_rol'))  # o donde desees llevarlo
             else:
                 flash("Contraseña incorrecta")

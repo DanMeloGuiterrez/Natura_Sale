@@ -13,6 +13,10 @@
         <tr><th>Dirección:</th><td>{{ direccion }}</td></tr>
         <tr><th>DNI:</th><td>{{ dni }}</td></tr>
     </table>
+    <li class="nav__item_categoria">
+        <img src="{{ url_for('static', filename='img/Imagenes/historial.png')}}" class="imagen">
+        <a href="{{ url_for('historial_compras_bp.historial_compras') }}" class="nav__link_menu" >Historial de Compras.</a>
+    </li>    
 </div>
 
 {% endblock %}

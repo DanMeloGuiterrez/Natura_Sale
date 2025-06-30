@@ -19,6 +19,7 @@ def editar_usuario(id_usuario):
         telefono = request.form['telefono']
         direccion = request.form['direccion']
         dni = request.form['dni']
+        id_tipo_usuario = int(request.form['id_tipo_usuario'])
 
         # 2. Actualizar datos
         sql = """
@@ -28,10 +29,12 @@ def editar_usuario(id_usuario):
                 email = %s,
                 telefono = %s,
                 direccion = %s,
-                dni = %s
+                dni = %s,
+                id_tipo_usuario = %s
             WHERE id_usuario = %s
         """
-        valores = (nombre, apellido, email, telefono, direccion, dni, id_usuario)
+        valores = (nombre, apellido, email, telefono, direccion, dni, id_tipo_usuario, id_usuario)
+
         miCursor.execute(sql, valores)
         conexion.commit()
 

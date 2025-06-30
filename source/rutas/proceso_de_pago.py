@@ -2,8 +2,7 @@ from flask import Blueprint, render_template, session, redirect, url_for
 
 # Define el blueprint
 proceso_de_pago_bp = Blueprint('proceso_de_pago_bp', __name__)
-
-# Ruta del blueprint
+# Ruta que muestra la página de pago
 @proceso_de_pago_bp.route('/proceso_de_pago')
 def proceso_de_pago():
     if 'rol' not in session:

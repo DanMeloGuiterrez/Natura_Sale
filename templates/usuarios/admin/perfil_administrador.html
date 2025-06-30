@@ -24,6 +24,10 @@
                 <a href="{{ url_for('agregar_producto_bp.agregar_producto') }}" class="nav__link_menu" >Agregar Productos</a>
             </li>
             <li class="nav__item_categoria">
+                <img src="{{ url_for('static', filename='img/Imagenes/historial.png')}}" class="imagen">
+                <a href="{{ url_for('visualizar_historial_compras_bp.visualizar_historial_compras') }}" class="nav__link_menu" >Visualizar Historial de Compras</a>
+            </li> 
+            <li class="nav__item_categoria">
                 <img src="{{ url_for('static', filename='img/Imagenes/visualizar.png')}}" class="imagen">
                 <a href="{{ url_for('visualizar_productos_bp.visualizar_productos') }}" class="nav__link_menu" >Visualizar Productos</a>
             </li>
