@@ -16,7 +16,6 @@ def registrarse():
         dni             = request.form['dni']
         id_tipo_usuario = 2
 
-        # Cifrar la contraseña antes de guardar
         contrasena_hash = generate_password_hash(contrasena)
 
         conecion_database = obtener_conexion()
@@ -28,13 +27,15 @@ def registrarse():
 
         miCursor.execute(sql, valores)
         conecion_database.commit()
+
+        # ✅ OBTENER EL ID ANTES DE CERRAR
+        id_usuario = miCursor.lastrowid
+
         miCursor.close()
         conecion_database.close()
 
-        # Obtener el id del nuevo usuario registrado
-        id_usuario = miCursor.lastrowid
-        
         # Guardar datos del usuario en sesión
+        session['id_usuario'] = id_usuario
         session['nombre'] = nombre
         session['apellido'] = apellido
         session['email'] = gmail
@@ -43,6 +44,7 @@ def registrarse():
         session['dni'] = dni
         session['rol'] = id_tipo_usuario
 
+        # ✅ Insertar la factura con el id_usuario correcto
         conexion = obtener_conexion()
         with conexion.cursor() as cursor:
             cursor.execute("INSERT INTO factura (id_usuario) VALUES (%s)", (id_usuario,))
