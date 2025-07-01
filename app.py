@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+
+import os
 #Funciones
 from source.rutas.inicio_de_seccion import inicio_de_seccion_bp
 from source.rutas.registrarse import registrarse_bp
@@ -105,5 +107,8 @@ def nosotros():
 def contactanos():
     return render_template('empresa/contactanos.html')
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # 5000 para desarrollo local
+    app.run(host='0.0.0.0', port=port, debug=True)
+
