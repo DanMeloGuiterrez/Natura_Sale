@@ -1,6 +1,4 @@
 from flask import Flask, render_template
-
-import os
 #Funciones
 from source.rutas.inicio_de_seccion import inicio_de_seccion_bp
 from source.rutas.registrarse import registrarse_bp
@@ -9,7 +7,7 @@ from source.rutas.olvide_contrasena import olvide_contrasena_bp
 from source.rutas.historial_compras import historial_compras_bp
 from source.rutas.factura_para_usuario import factura_para_usuario_bp
 from source.rutas.registrar_pago import registrar_pago_bp
-
+from source.rutas.buscador import buscador_bp
 # Admin
 from source.rutas.administrador.verificar_rol import verificar_rol_bp
 from source.rutas.administrador.cerrar_sesion import cerrar_sesion_bp
@@ -52,7 +50,7 @@ app.register_blueprint(olvide_contrasena_bp)
 app.register_blueprint(historial_compras_bp)
 app.register_blueprint(factura_para_usuario_bp)
 app.register_blueprint(registrar_pago_bp)
-
+app.register_blueprint(buscador_bp)
 # Funciones para el Usuario
 app.register_blueprint(inicio_de_seccion_bp)
 app.register_blueprint(registrarse_bp)

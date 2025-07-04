@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Buscador {% endblock %}
+
+{% block buscador %}<br>
+<div class="contenedor-buscador-productos"><br>
+    <!-- Columna Izquierda: Buscador -->
+    <div class="bloque-buscador">
+        <h1 class="nav__title">Buscador</h1>
+        <div class="barraBusqueda">
+            <input type="text" placeholder="Buscar productos..." id="barraBusqueda" name="barraBusqueda"> 
+            <i class='bx bx-search-alt'></i>
+        </div>
+    </div>
+
+    <!-- Columna Derecha: Título + Productos -->
+    <div class="bloque-productos">
+        <div class="header">
+            <p>Buscador Online</p>
+        </div>
+        <div id="raiz">
+            <!-- Aquí se insertarán los productos -->
+        </div>
+    </div>
+</div>
+
+<div id="productos-data" data-productos='{{ productos | tojson | safe }}' style="display: none;"></div>
+
+
+{% endblock %}

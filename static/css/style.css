@@ -779,5 +779,117 @@ select[name="id_tipo_usuario"]{
     
 }
 
+/* Buscador */
+/* Contenedor general: 2 columnas */
+.contenedor-buscador-productos {
+    display: flex;
+    gap: 20px;
+}
 
+/* Columna Izquierda: Buscador */
+.bloque-buscador {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(43, 255, 0, 0.965);
+}
+
+/* Buscador */
+.barraBusqueda {
+    width: 100%;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.barraBusqueda input {
+    width: 90%;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+/* Columna Derecha: Título + Productos */
+.bloque-productos {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(43, 255, 0, 0.965);
+}
+
+/* Título */
+.header {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header p {
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Productos */
+#raiz {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.box {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .contenedor-buscador-productos {
+        flex-direction: column;
+    }
+
+    .bloque-buscador,
+    .bloque-productos {
+        width: 100%;
+    }
+
+    #raiz {
+        grid-template-columns: 1fr;
+    }
+}
+.images {
+    width: 150px;
+    height: 150px;
+    object-fit: fill;  /* Deforma si es necesario para ocupar todo el espacio */
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
 

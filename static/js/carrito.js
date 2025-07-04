@@ -1,6 +1,6 @@
 // Obtener elementos del DOM
 const carrito = document.getElementById('carrito'); 
-const listaProductos = document.querySelector('.nav_fondo_categoria');
+const listaProductos = document.querySelector('#raiz') || document.querySelector('.nav_fondo_categoria');
 const lista = document.querySelector('#lista-carrito tbody');
 const vaciarCarrito = document.getElementById('vaciar-carrito');
 
