@@ -18,7 +18,23 @@ let imagenes = [
   },
   {
     url: "/static/img/Imagenes/imagen5.png",
-    descripcion: "Elije Jardines Eden para tus decoraciones",
+    descripcion: "Elije Natura Sale para tus decoraciones",
+  },
+  {
+    url: "/static/img/Imagenes/imagen6.jpg",
+    descripcion: "",
+  },
+  {
+    url: "/static/img/Imagenes/imagen7.jpg",
+    descripcion: "",
+  },
+  {
+    url: "/static/img/Imagenes/imagen8.jpg",
+    descripcion: "",
+  },
+  {
+    url: "/static/img/Imagenes/imagen9.jpg",
+    descripcion: "",
   },
 ];
 
